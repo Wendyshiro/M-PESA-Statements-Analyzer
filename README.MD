@@ -38,14 +38,19 @@ Run the Go program
 Option 1 – Web Interface
 
 1.Run the app with go run main.go.
+
 2.Open your browser and go to http://localhost:8080
+
 3.Upload your M-Pesa statement via the upload form
+
 4.View your financial summary and interactive charts instantly
 
 Option 2 - API/ Postman
 
 1.Send a POST request to /upload with the PDF file as multipart/form data.
+
 2.The response returns parsed JSON data and computed totals
+
 3.Example endpoint:
 -POST http://localhost:8080/upload
 
@@ -66,10 +71,15 @@ json
 }
 
 🧩 Roadmap
+
 Docker containerization
+
 Cloud Run deployment
+
 Improved category classifier (AI/NLP)
+
 Persistent user dashboard
+
 WhatsApp or SMS summary notifications
 
 🤝 Contributing
