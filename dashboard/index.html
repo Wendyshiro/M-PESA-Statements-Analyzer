@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Mpesa Finance Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #f8f9fa;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .upload-section h2, .card h2 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .upload-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background-color: #fafafa;
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        .status {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+            font-size: 14px;
+        }
+
+        .success {
+            background: #dff0d8;
+            color: #3c763d;
+        }
+
+        .error {
+            background: #f2dede;
+            color: #a94442;
+        }
+
+        canvas {
+            width: 100% !important;
+            height: auto !important;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mpesa Finance Dashboard</h1>
+    
+    <div class="dashboard">
+        <div class="sidebar">
+            <div class="card upload-section">
+                <h2>Upload Statement</h2>
+                <form id="uploadForm" class="upload-form">
+                    <input type="file" id="fileInput" accept=".pdf" required>
+                    <button type="submit">Upload & Process</button>
+                </form>
+                <div id="status" class="status"></div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="card">
+                <h2>Category Breakdown</h2>
+                <canvas id="catChart" width="800" height="400"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ======= Upload Handler =======
+        document.getElementById('uploadForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const fileInput = document.getElementById('fileInput');
+            const statusDiv = document.getElementById('status');
+            
+            if (!fileInput.files || fileInput.files.length === 0) {
+                showStatus('Please select a file', 'error');
+                return;
+            }
+
+            const file = fileInput.files[0];
+            if (!file.name.endsWith('.pdf')) {
+                showStatus('Please upload a PDF file', 'error');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                showStatus('Uploading and processing...', '');
+                
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => ({}));
+                    throw new Error(errorData.error || 'Failed to process file');
+                }
+
+                const result = await response.json();
+                showStatus('File processed successfully! Loading data...', 'success');
+                
+                fileInput.value = '';
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                await loadChartData();
+            } catch (error) {
+                console.error('Upload error:', error);
+                showStatus(`Error: ${error.message}`, 'error');
+            }
+        });
+
+        function showStatus(message, type) {
+            const statusDiv = document.getElementById('status');
+            statusDiv.textContent = message;
+            statusDiv.className = 'status' + (type ? ` ${type}` : '');
+            statusDiv.style.display = 'block';
+        }
+
+        // ======= Chart Handling =======
+        let chart = null;
+
+        async function loadChartData() {
+            try {
+                const response = await fetch('/summary');
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => ({}));
+                    throw new Error(errorData.error || 'Failed to load data');
+                }
+
+                const data = await response.json();
+                const categories = data.summary?.categories || data.categories || {};
+
+                if (Object.keys(categories).length === 0) {
+                    showStatus('No transaction data available', 'error');
+                    return;
+                }
+
+                updateChart(data);
+            } catch (error) {
+                console.error('Error loading chart data:', error);
+                showStatus(`Error: ${error.message}`, 'error');
+            }
+        }
+
+        function updateChart(data) {
+            const ctx = document.getElementById('catChart').getContext('2d');
+            const categories = data.summary?.categories || data.categories || {};
+            const labels = Object.keys(categories);
+            const values = labels.map(label => categories[label]);
+            const sanitizedValues = values.map(v => Math.max(v, 1)); // avoid log(0)
+
+            const maxValue = Math.max(...values);
+            const minValue = Math.min(...values);
+            const useLogScale = maxValue > minValue * 10;
+
+            if (chart) chart.destroy();
+
+            chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Amount (Ksh)',
+                        data: sanitizedValues,
+                        backgroundColor: values.map(v => v < 0 
+                            ? 'rgba(255, 99, 132, 0.6)' 
+                            : 'rgba(75, 192, 192, 0.6)'),
+                        borderColor: values.map(v => v < 0 
+                            ? 'rgba(255, 99, 132, 1)' 
+                            : 'rgba(75, 192, 192, 1)'),
+                        borderWidth: 1,
+                        borderRadius: 6,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: { 
+                        y: { 
+                            type: useLogScale ? 'logarithmic' : 'linear',
+                            min: useLogScale ? 1 : 0,
+                            suggestedMax: maxValue * 1.2,
+                            title: {
+                                display: true,
+                                text: 'Amount (Ksh, ' + (useLogScale ? 'log scale' : 'linear') + ')'
+                            },
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)',
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    if (value === 0 || isNaN(value)) return '';
+                                    if (value >= 1_000_000) return 'Ksh ' + (value / 1_000_000).toFixed(1) + 'M';
+                                    if (value >= 1_000) return 'Ksh ' + (value / 1_000).toFixed(0) + 'K';
+                                    return 'Ksh ' + Math.round(value);
+                                },
+                                autoSkip: true,
+                                maxTicksLimit: useLogScale ? 6 : 10
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Categories',
+                                padding: {top: 10}
+                            },
+                            grid: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: (ctx) => 'Ksh ' + ctx.raw.toLocaleString(),
+                                title: (items) => items[0].label
+                            },
+                            displayColors: false,
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleFont: { size: 14, weight: 'bold' },
+                            bodyFont: { size: 14 },
+                            cornerRadius: 4
+                        },
+                        datalabels: {
+                            anchor: 'end',
+                            align: 'top',
+                            formatter: (value) => 'Ksh ' + value.toLocaleString(),
+                            font: { weight: 'bold', size: 12 }
+                        }
+                    },
+                    animation: {
+                        duration: 1000,
+                        easing: 'easeOutQuart'
+                    },
+                    barPercentage: 0.7,
+                    categoryPercentage: 0.8
+                },
+                plugins: [ChartDataLabels]
+            });
+        }
+
+        // Initial load
+        loadChartData();
+    </script>
+</body>
+</html>
