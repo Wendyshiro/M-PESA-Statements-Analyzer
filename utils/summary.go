@@ -67,10 +67,36 @@ func categorizeTransaction(details string) string {
 
 	// Common M-Pesa patterns
 	switch {
+	//airtime
 	case strings.Contains(details, "airtime"),
 		strings.Contains(details, "data"),
 		strings.Contains(details, "bundle"):
 		return "Airtime & Data"
+		//shopping
+	case strings.Contains(details, "till"),
+		strings.Contains(details, "pos"),
+		strings.Contains(details, "shop"),
+		strings.Contains(details, "naivas"),
+		strings.Contains(details, "quickmart"):
+		return "Shopping"
+
+	//utilities
+	case strings.Contains(details, "bill"),
+		strings.Contains(details, "utility"),
+		strings.Contains(details, "water"),
+		strings.Contains(details, "electricity"),
+		strings.Contains(details, "internet"),
+		strings.Contains(details, "pharmaceuticals"),
+		strings.Contains(details, "gas"):
+		return "Utilities"
+
+	//food
+	case strings.Contains(details, "restaurant"),
+		strings.Contains(details, "cafe"),
+		strings.Contains(details, "java"),
+		strings.Contains(details, "cj"),
+		strings.Contains(details, "mint & salt"):
+		return "Food & Dining"
 
 	case strings.Contains(details, "till"),
 		strings.Contains(details, "pay bill"),
