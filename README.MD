@@ -39,7 +39,7 @@ Option 1 – Web Interface
 
 1.Run the app with go run main.go.
 
-2.Open your browser and go to http://localhost:8080
+2.Open your browser and go to http://localhost:/8000/dashboard
 
 3.Upload your M-Pesa statement via the upload form
 
