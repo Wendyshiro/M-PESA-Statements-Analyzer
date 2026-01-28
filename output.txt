@@ -1,4 +1,4 @@
-                                                                                                                                Page 1 of 5
+                                                                                                                                Page 1 of 4
 
 
 
@@ -7,24 +7,22 @@
 
 Customer Name:                             WENDY WAWERU
 Mobile Number:                             254706476706
-Date of Statement:                         13th 10 2025
-Statement Period:                          01st 9 2025 - 01st 10 2025
+Date of Statement:                         31st 10 2025
+Statement Period:                          01st 10 2025 - 31st 10 2025
 
 
                                                               SUMMARY
 
 
 TRANSACTION TYPE                               PAID IN                                        PAID OUT
-Cash Out                                       0.00                                           111.00
-Send Money                                     60,685.00                                      7,325.00
-Transaction Reversal                           0.00                                           70.00
-B2C Payment                                    15,595.00                                      0.00
-Pay Bill                                       21.99                                          56,589.00
-KenyaRecharge                                  0.00                                           80.00
-ODRepayment                                    0.00                                           47.68
-Customer Merchant Payment                      25.21                                          11,645.00
-Customer Airtime Purchase                      0.00                                           350.00
-TOTAL:                                         76,327.20                                      76,217.68
+Send Money                                     57,247.47                                      9,450.00
+B2C Payment                                    10,000.00                                      0.00
+Pay Bill                                       0.00                                           54,554.00
+KenyaRecharge                                  0.00                                           100.00
+ODRepayment                                    0.00                                           7.55
+Customer Merchant Payment                      0.00                                           3,197.00
+Customer Airtime Purchase                      0.00                                           270.00
+TOTAL:                                         67,247.47                                      67,578.55
 
 
 
@@ -33,31 +31,34 @@ TOTAL:                                         76,327.20                        
 
 Receipt No            Completion Time      Details                                     Transaction Status   Paid in    Withdraw Balance
                                                                                                                        n
-TJ18L64QDG            2025-10-01 16:33:39 Pay Bill Charge                            COMPLETED              0.00       72.00     27,304.53
-TJ18L64QDG            2025-10-01 16:33:39 Pay Bill Online to 303030 - Absa Bank      COMPLETED              0.00       27,000.00 304.53
+TJV8L8TTCD            2025-10-31 12:21:22 Customer Payment to Small Business to    COMPLETED                0.00       20.00    45.45
+                                          254725***190 - Julius Machuka Nyakina
+TJV8L8TSXH            2025-10-31 11:53:10 Merchant Payment to 7801623 -            COMPLETED                0.00       20.00        65.45
+                                          BURUBURU 58 TRAVELLERS SACCO
+                                          KCT 585Z
+TJU8L8S0SP            2025-10-30 18:33:41 Customer Transfer to 0113***176 - CELINE COMPLETED                0.00       100.00       85.45
+                                          SHEILA MUTHONI WAWERU
+TJU8L8RVQL            2025-10-30 18:18:10 Pay Bill Online to 303030 - Absa Bank    COMPLETED                0.00       27,000.00 257.45
                                           Kenya PLC Acc. 2048710894
-TJ12067WGI            2025-10-01 07:34:06 Funds received from 254722***003 -         COMPLETED              27,000.00 0.00          27,376.53
+TJU8L8RVQL            2025-10-30 18:18:10 Pay Bill Charge                          COMPLETED                0.00      72.00         185.45
+TJT208P8LT            2025-10-29 08:04:16 Funds received from 254722***003 -       COMPLETED                27,000.00 0.00          27,257.45
                                           SYLVIA WAWIRA NTHIGA
-TIU8L616SF            2025-09-30 15:31:59 Merchant Payment to 937350 - CANAAN        COMPLETED              0.00       300.00       376.53
+TJS8L8KGD2            2025-10-28 15:31:07 Customer Transfer to 0799***822 -        COMPLETED                0.00       20.00        257.45
+                                          STEPHEN GATHEGE MAINA
+TJS8L8KJ9W            2025-10-28 15:25:08 Merchant Payment to 6780944 - NAIVAS T- COMPLETED                 0.00       772.00       277.45
+                                          SQUARE BURU BURU
+TJS8V8JY1A            2025-10-28 15:24:12 Funds received from 0113***176 - CELINE COMPLETED                 250.00     0.00         1,049.45
+                                          SHEILA MUTHONI WAWERU
+TJS208N65F            2025-10-28 15:20:21 Funds received from 254722***003 -       COMPLETED                500.00     0.00         799.45
+                                          SYLVIA WAWIRA NTHIGA
+TJR8L8I5UN            2025-10-27 18:25:23 Merchant Payment to 8786943 - EUNICE     COMPLETED                0.00       100.00       299.45
+                                          ANYANGO OWADE
+TJQ8L8DXNJ            2025-10-26 13:35:01 Merchant Payment to 937350 - CANAAN      COMPLETED                0.00       300.00       399.45
                                           PHARMACEUTICALS LTD
-TIU8L61247            2025-09-30 15:25:37 Withdrawal Charge                          COMPLETED              0.00       11.00        676.53
-TIU8L61247            2025-09-30 15:25:37 Customer Withdrawal At Agent Till 485203 - COMPLETED              0.00       100.00       687.53
-                                          Denca Comms Opp KCB BuruBuru
-TIU8L609IT            2025-09-30 10:40:35 Merchant Payment to 6300338 -              COMPLETED              0.00       30.00        787.53
-                                          BONIFACE KITHEKA NDIVO
-TIU8L5ZYCS            2025-09-30 10:10:01 Merchant Payment to 7157360 - PAUL         COMPLETED              0.00       20.00        817.53
-                                          OCHIENG JUMA
-TIS8L5TJR1            2025-09-28 13:45:18 Customer Transfer of Funds Charge          COMPLETED              0.00       7.00         837.53
-TIS8L5TJR1            2025-09-28 13:45:18 Customer Payment to Small Business to      COMPLETED              0.00       200.00       844.53
-                                          0113***860 - EUNICE ANYANGO OWADE
-TIS8L5TI32            2025-09-28 13:33:14 Merchant Payment to 118184 - Quick Mart COMPLETED                 0.00       200.00       1,044.53
+TJQ8L8DXKL            2025-10-26 13:30:38 Merchant Payment to 118184 - Quick Mart COMPLETED                 0.00       220.00       699.45
                                           Buruburu
-TIS205Y4UB            2025-09-28 12:25:23 Funds received from 254722***003 -         COMPLETED              500.00     0.00         1,244.53
-                                          SYLVIA WAWIRA NTHIGA
-TIR8L5RX5W            2025-09-27 19:48:30 Airtime Purchase                           COMPLETED              0.00       50.00        744.53
-TIR8L5RWML            2025-09-27 19:28:30 Merchant Payment to 7216113 -              COMPLETED              0.00       140.00       794.53
-                                          BURUBURU SACCO KCG 540M
-
+TJN8L85TSG            2025-10-23 21:21:54 Customer Transfer to 0793***250 - JULIUS COMPLETED                0.00       70.00        919.45
+                                          KIMANI MWANGI
 
 
 
@@ -70,232 +71,74 @@ Customercare@safaricom.co.ke
 
 Twitter: @SafaricomLtd | @safaricom_care| www.facebook.com/safaricomltd | For self-help dial *234# | Web: www.safaricom.co.ke | Terms and
 conditions apply
-                                                                                                                                Page 2 of 5
+                                                                                                                                Page 2 of 4
 
 
 Receipt No            Completion Time      Details                                     Transaction Status   Paid in    Withdraw Balance
                                                                                                                        n
-TIR8L5RMMC            2025-09-27 19:00:50 Merchant Payment to 6809599 - PETE'S COMPLETED                    0.00       2,000.00 934.53
-                                          CAFE - KOINANGE
-TIR8L5RJNY            2025-09-27 19:00:18 Business Payment from 600502 - Old           COMPLETED            1,000.00   0.00         2,934.53
-                                          Mutual Mobile Services via API. Original
-                                          conversation ID is f1bb-4cf1-a5f9-
-                                          105a8f24b1c313236.
-TIR8V5RF22            2025-09-27 18:59:57 Funds received from 0113***176 - CELINE COMPLETED                 250.00     0.00         1,934.53
-                                          SHEILA MUTHONI WAWERU
-TIR8L5RL4N            2025-09-27 18:56:40 Recharge for Customer to 4093441 -           COMPLETED            0.00       20.00        1,684.53
-                                          SAFARICOM DATA BUNDLES by
-                                          0706***706 - WENDY RITA WANJIRU
-                                          WAWERU
-TIRH05TLIH            2025-09-27 17:48:56 Funds received from 254704***360 -           COMPLETED            300.00     0.00         1,704.53
-                                          TIMOTHY B MUTUMA
-TIR8L5Q9CC            2025-09-27 13:27:01 Business Payment from 600502 - Old           COMPLETED            1,000.00   0.00         1,404.53
-                                          Mutual Mobile Services via API. Original
-                                          conversation ID is c10a-41b5-b38e-
-                                          fb339b91876217930.
-TIR205V875            2025-09-27 13:25:02 Funds received from 254722***003 -           COMPLETED            200.00     0.00         404.53
-                                          SYLVIA WAWIRA NTHIGA
-TIQ8L5MQO1            2025-09-26 15:04:36 Customer Transfer to 0113***176 - CELINE COMPLETED                0.00       100.00       204.53
-                                          SHEILA MUTHONI WAWERU
-TIP8L5JVXH            2025-09-25 18:55:03 OD Loan Repayment to 232323 - M-PESA COMPLETED                    0.00       25.47        304.53
-                                          Overdraw
-TIP205OQCO            2025-09-25 18:55:02 Funds received from 254722***003 -           COMPLETED            300.00     0.00         330.00
-                                          SYLVIA WAWIRA NTHIGA
-TIP8L5JRAB            2025-09-25 18:51:04 Merchant Payment Fuliza M-Pesa to            COMPLETED            0.00       200.00       30.00
-                                          937350 - CANAAN PHARMACEUTICALS
-                                          LTD
-TIP8L5JRAB            2025-09-25 18:51:04 OverDraft of Credit Party                    COMPLETED            25.21      0.00         230.00
-TIP8V5JUH2            2025-09-25 18:51:02 Funds received from 0113***176 - CELINE COMPLETED                 30.00      0.00         204.79
-                                          SHEILA MUTHONI WAWERU
-TIP8L5JR6B            2025-09-25 18:46:25 Merchant Payment to 6780944 - NAIVAS T- COMPLETED                 0.00       259.00       174.79
-                                          SQUARE BURU BURU
-TIO8L5G0O2            2025-09-24 18:33:51 Recharge for Customer to 4093441 -           COMPLETED            0.00       20.00        433.79
-                                          SAFARICOM DATA BUNDLES by
-                                          0706***706 - WENDY RITA WANJIRU
-                                          WAWERU
-TIM8L59BOU            2025-09-22 15:12:37 Customer Transfer to 0113***176 - CELINE COMPLETED                0.00       50.00        453.79
-                                          SHEILA MUTHONI WAWERU
-TIL2VS3JUQ            2025-09-21 12:49:22 Merchant Payment to 9442788 - IRENE          COMPLETED            0.00       200.00       503.79
-                                          CHEBIWOTT TANGUREN
-TIL9VQXR4X            2025-09-21 12:42:00 Merchant Payment to 6300338 -                COMPLETED            0.00       30.00        703.79
-                                          BONIFACE KITHEKA NDIVO
-TIL9VPG5OX            2025-09-21 12:32:32 Merchant Payment to 118184 - Quick Mart COMPLETED                 0.00       414.00       733.79
-                                          Buruburu
-TIL5VM3GRB            2025-09-21 12:10:53 Funds received from 254722***003 -           COMPLETED            300.00     0.00         1,147.79
-                                          SYLVIA WAWIRA NTHIGA
-TIL9UYOUAB            2025-09-21 09:34:21 Business Payment from 614250 -               COMPLETED            95.00      0.00         847.79
-                                          AliExpress via API. Original conversation ID
-                                          is 502402609962.
-TIJ1LNDGG7            2025-09-19 14:24:05 Merchant Payment to 7655352 -                COMPLETED            0.00       130.00       752.79
-                                          EVELYN WAMBUI
-TII8IZOUZ6            2025-09-18 21:16:26 Merchant Payment to 7801623 -                COMPLETED            0.00       70.00        882.79
-                                          BURUBURU 58 TRAVELLERS SACCO
-                                          KCT 585Z
-TII5IUJSWX            2025-09-18 20:50:59 Customer Transfer of Funds Charge            COMPLETED            0.00       23.00        952.79
-TII5IUJSWX            2025-09-18 20:50:59 Customer Transfer to 254715***967 -          COMPLETED            0.00       1,450.00     975.79
+TJN8L85N5D            2025-10-23 20:13:47 Customer Transfer of Funds Charge         COMPLETED               0.00       33.00    989.45
+TJN8L85N5D            2025-10-23 20:13:47 Customer Transfer to 254715***967 -       COMPLETED               0.00       2,100.00 1,022.45
                                           Branice Munyola Witab
-TII7HAW54T            2025-09-18 17:18:17 Customer Transfer of Funds Charge            COMPLETED            0.00       13.00        2,425.79
-TII7HAW54T            2025-09-18 17:18:17 Customer Transfer to 254714***204 -          COMPLETED            0.00       1,000.00     2,438.79
-                                          SAMUEL NJOGU
-
-
-
-
-Disclaimer: This record is produced for your personal use and is not transferable. If this record is sought to be produced in court,
-please contact the nearest retail shop for further guidance or send an email to Safaricom Customer Care via
-Customercare@safaricom.co.ke
-
-
-
-
-Twitter: @SafaricomLtd | @safaricom_care| www.facebook.com/safaricomltd | For self-help dial *234# | Web: www.safaricom.co.ke | Terms and
-conditions apply
-                                                                                                                                Page 3 of 5
-
-
-Receipt No            Completion Time      Details                                     Transaction Status   Paid in    Withdraw Balance
-                                                                                                                       n
-TII7GLDHTL            2025-09-18 14:54:47 Recharge for Customer to 4093441 -       COMPLETED                0.00       20.00    3,438.79
-                                          SAFARICOM DATA BUNDLES by
-                                          0706***706 - WENDY RITA WANJIRU
-                                          WAWERU
-TII8FX0RYO            2025-09-18 12:30:50 Recharge for Customer to 4093441 -       COMPLETED                0.00       20.00        3,458.79
-                                          SAFARICOM DATA BUNDLES by
-                                          0706***706 - WENDY RITA WANJIRU
-                                          WAWERU
-TII1FJFWPF            2025-09-18 11:07:16 Merchant Payment to 7308884 - JOHN       COMPLETED                0.00       60.00        3,478.79
-                                          ASENJI MAKENZI
-TII4FFMGGK            2025-09-18 10:43:33 Business Payment from 600502 - Old       COMPLETED                3,500.00   0.00         3,538.79
+TJN8L85J78            2025-10-23 20:13:06 Business Payment from 600502 - Old        COMPLETED               1,000.00   0.00         3,122.45
                                           Mutual Mobile Services via API. Original
-                                          conversation ID is 2516-4487-abc8-
-                                          b3030788***616513.
-TIH8BJ1ZRU            2025-09-17 15:32:35 Customer Transfer to 0113***176 - CELINE COMPLETED                0.00       50.00        38.79
-                                          SHEILA MUTHONI WAWERU
-TIG26VI8DQ            2025-09-16 17:15:25 Customer Payment to Small Business to    COMPLETED                0.00       100.00       88.79
-                                          0113***860 - EUNICE ANYANGO OWADE
-TIF9ZB37RB            2025-09-15 12:29:26 Send Money Reversal via API to           COMPLETED                0.00       70.00        188.79
-                                          0113***771 - Esha Said
-TIF5ZAMK6H            2025-09-15 12:22:38 Funds received from 0113***771 - Esha    COMPLETED                70.00      0.00         258.79
-                                          Said
-TIE6UDYB2Q            2025-09-14 12:51:16 Merchant Payment to 7655352 -            COMPLETED                0.00       130.00       188.79
-                                          EVELYN WAMBUI
-TIE4UAGWBA            2025-09-14 12:29:06 Funds received from 254722***003 -       COMPLETED                200.00     0.00         318.79
-                                          SYLVIA WAWIRA NTHIGA
-TID2QTM9DI            2025-09-13 18:01:18 Customer Transfer to 0113***176 - CELINE COMPLETED                0.00       100.00       118.79
-                                          SHEILA MUTHONI WAWERU
-TID6QNTWXI            2025-09-13 17:36:08 Merchant Payment to 5662570 - Q          COMPLETED                0.00       1,250.00     218.79
-                                          KITCHEN BRANDS LIMITED 1
-TID6QN2GM2            2025-09-13 17:32:42 Merchant Payment to 6780944 - NAIVAS T- COMPLETED                 0.00       354.00       1,468.79
-                                          SQUARE BURU BURU
-TID6QIQLNC            2025-09-13 17:12:42 Funds received from 254722***003 -       COMPLETED                1,500.00   0.00         1,822.79
-                                          SYLVIA WAWIRA NTHIGA
-TIC1LO2H1B            2025-09-12 18:40:30 Merchant Payment Online to 515034 -      COMPLETED                0.00       580.00       322.79
-                                          NAIVAS BURU BURU
-TIC5LNQPKP            2025-09-12 18:39:20 Funds received from 0113***176 - CELINE COMPLETED                 200.00     0.00         902.79
-                                          SHEILA MUTHONI WAWERU
-TIC4LHQ1ZE            2025-09-12 18:16:51 Customer Payment to Small Business to    COMPLETED                0.00       100.00       702.79
-                                          0113***860 - EUNICE ANYANGO OWADE
-TIB2G8WPQ0            2025-09-11 18:30:21 Merchant Payment to 118184 - Quick Mart COMPLETED                 0.00       224.00       802.79
-                                          Buruburu
-TIB6G3UG24            2025-09-11 18:10:31 Funds received from 254722***003 -       COMPLETED                250.00     0.00         1,026.79
-                                          SYLVIA WAWIRA NTHIGA
-TIB5FKY1H3            2025-09-11 16:43:01 Airtime Purchase                         COMPLETED                0.00       100.00       776.79
-TIB9EFG6J9            2025-09-11 12:40:26 Customer Transfer of Funds Charge        COMPLETED                0.00       7.00         876.79
-TIB9EFG6J9            2025-09-11 12:40:26 Customer Transfer to 0113***176 - CELINE COMPLETED                0.00       500.00       883.79
-                                          SHEILA MUTHONI WAWERU
-TIA1B6PRCZ            2025-09-10 18:44:53 Merchant Payment to 7335760 - ERNEST COMPLETED                    0.00       70.00        1,383.79
+                                          conversation ID is 018a-4277-a786-
+                                          793a84715a71198246.
+TJN8L85N31            2025-10-23 20:11:26 Recharge for Customer to 4093441 -        COMPLETED               0.00       20.00        2,122.45
+                                          SAFARICOM DATA BUNDLES by
+                                          0706***706 - WENDY RITA WANJIRU
+                                          WAWERU
+TJNHY882DT            2025-10-23 18:11:38 Funds received from 254715***967 -        COMPLETED               390.00     0.00         2,142.45
+                                          Branice Munyola Witab
+TJN8L84Z0F            2025-10-23 18:11:18 Customer Transfer of Funds Charge         COMPLETED               0.00       13.00        1,752.45
+TJN8L84Z0F            2025-10-23 18:11:18 Customer Transfer to 254726***074 - Osoro COMPLETED               0.00       780.00       1,765.45
+                                          N Justus
+TJNHY87PXR            2025-10-23 15:57:48 Funds received from 254715***967 -        COMPLETED               360.00     0.00         2,545.45
+                                          Branice Munyola Witab
+TJN8L84E0G            2025-10-23 15:54:15 Customer Transfer of Funds Charge         COMPLETED               0.00       13.00        2,185.45
+TJN8L84E0G            2025-10-23 15:54:15 Customer Transfer to 254715***850 -       COMPLETED               0.00       720.00       2,198.45
+                                          OMAIKO WALTER MOREBU
+TJN8L84A3B            2025-10-23 14:47:15 Customer Payment to Small Business to     COMPLETED               0.00       30.00        2,918.45
+                                          254722***943 - NANCY WAIRIMA KAGIRI
+TJN8L84773            2025-10-23 14:39:52 Merchant Payment to 7295215 -             COMPLETED               0.00       10.00        2,948.45
+                                          GOODLIFE PHARMACY -SAROVA
+                                          STANLEY
+TJN8L83Y6I            2025-10-23 13:16:18 Merchant Payment to 7335760 - ERNEST COMPLETED                    0.00       60.00        2,958.45
                                           MAINA KIAMA
-TIA0AVQXXC            2025-09-10 18:02:48 Customer Transfer of Funds Charge        COMPLETED                0.00       33.00        1,453.79
-TIA0AVQXXC            2025-09-10 18:02:48 Customer Transfer to 254715***967 -      COMPLETED                0.00       1,950.00     1,486.79
-                                          Branice Munyola Witab
-TIA4AAPZXQ            2025-09-10 16:22:57 Business Payment from 600502 - Old       COMPLETED                2,000.00   0.00         3,436.79
+TJN8L83SG8            2025-10-23 12:33:41 Business Payment from 600502 - Old        COMPLETED               3,000.00   0.00         3,018.45
                                           Mutual Mobile Services via API. Original
-                                          conversation ID is 1053-4f7e-b834-
-                                          5bd624d45464912963.
-TIA29RE22S            2025-09-10 14:29:52 Pay Bill Charge                          COMPLETED                0.00       10.00        1,436.79
-TIA29RE22S            2025-09-10 14:29:52 Pay Bill to 522533 - Lipa na KCB Acc.    COMPLETED                0.00       600.00       1,446.79
-                                          7645321
-TIA899ND3G            2025-09-10 12:49:23 Airtime Purchase                         COMPLETED                0.00       100.00       2,046.79
-TIA293MOF4            2025-09-10 12:14:20 Merchant Payment to 5010910 -            COMPLETED                0.00       60.00        2,146.79
-                                          MICHAEL MUGAMBI
-
-
-Disclaimer: This record is produced for your personal use and is not transferable. If this record is sought to be produced in court,
-please contact the nearest retail shop for further guidance or send an email to Safaricom Customer Care via
-Customercare@safaricom.co.ke
-
-
-
-
-Twitter: @SafaricomLtd | @safaricom_care| www.facebook.com/safaricomltd | For self-help dial *234# | Web: www.safaricom.co.ke | Terms and
-conditions apply
-                                                                                                                                Page 4 of 5
-
-
-Receipt No            Completion Time      Details                                     Transaction Status   Paid in    Withdraw Balance
-                                                                                                                       n
-TIA48IPUW6            2025-09-10 10:06:45 Business Payment from 600502 - Old           COMPLETED            2,000.00   0.00     2,206.79
-                                          Mutual Mobile Services via API. Original
-                                          conversation ID is 1053-4f7e-b834-
-                                          5bd624d45464664947.
-TIA68D4SPS            2025-09-10 09:30:41 Merchant Payment to 7889698 -                COMPLETED            0.00       140.00       206.79
-                                          EVERLYNE NDANU KALUMU
-TIA88BZ4AK            2025-09-10 09:23:01 Funds received from 254722***003 -           COMPLETED            200.00     0.00         346.79
-                                          SYLVIA WAWIRA NTHIGA
-TI801MG8GW            2025-09-08 20:39:40 Merchant Payment to 118184 - Quick Mart      COMPLETED            0.00       119.00       146.79
-                                          Buruburu
-TI821LKFR8            2025-09-08 20:35:53 Merchant Payment to 115564 - EPHRAIM         COMPLETED            0.00       800.00       265.79
-                                          SALON AND BARBER SHOP
-TI87XM0EB7            2025-09-08 12:13:08 Pay Bill Charge                              COMPLETED            0.00       20.00        1,065.79
-TI87XM0EB7            2025-09-08 12:13:08 Pay Bill Online to 303030 - Absa Bank        COMPLETED            0.00       2,000.00     1,085.79
-                                          Kenya PLC Acc. 2048710894
-TI85XLR96T            2025-09-08 12:11:41 Business Payment from 600502 - Old           COMPLETED            2,000.00   0.00         3,085.79
-                                          Mutual Mobile Services via API. Original
-                                          conversation ID is d025-43d4-8878-
-                                          b3838830fa452269502.
-TI74SVBERS            2025-09-07 13:41:43 Customer Transfer of Funds Charge            COMPLETED            0.00       7.00         1,085.79
-TI74SVBERS            2025-09-07 13:41:43 Customer Payment to Small Business to        COMPLETED            0.00       390.00       1,092.79
+                                          conversation ID is 4bcd-43fa-bcc4-
+                                          596d56b6889225538.
+TJM8L82OEA            2025-10-22 23:01:41 Airtime Purchase                          COMPLETED               0.00       50.00        18.45
+TJL8L7YN69            2025-10-21 18:44:05 Merchant Payment to 6300338 -             COMPLETED               0.00       10.00        68.45
+                                          BONIFACE KITHEKA NDIVO
+TJK8L7VFCT            2025-10-20 18:14:54 Customer Payment to Small Business to     COMPLETED               0.00       100.00       78.45
                                           0113***860 - EUNICE ANYANGO OWADE
-TI78SPF2YO            2025-09-07 13:07:07 Funds received from 254722***003 -           COMPLETED            400.00     0.00         1,482.79
-                                          SYLVIA WAWIRA NTHIGA
-TI69OYDVQL            2025-09-06 17:48:09 Customer Transfer of Funds Charge            COMPLETED            0.00       13.00        1,082.79
-TI69OYDVQL            2025-09-06 17:48:09 Customer Transfer to 254712***194 - SAIDI    COMPLETED            0.00       568.00       1,095.79
-                                          MUIRURI WAINAINA
-TI62NL8U9G            2025-09-06 13:37:15 Customer Transfer to 0703***299 -            COMPLETED            0.00       100.00       1,663.79
-                                          PATIENCE JEMUTAI
-TI67ND143X            2025-09-06 12:52:44 Customer Transfer of Funds Charge            COMPLETED            0.00       7.00         1,763.79
-TI67ND143X            2025-09-06 12:52:44 Customer Transfer to 0703***299 -            COMPLETED            0.00       240.00       1,770.79
-                                          PATIENCE JEMUTAI
-TI62NAY15E            2025-09-06 12:41:05 Business Payment from 600502 - Old           COMPLETED            2,000.00   0.00         2,010.79
-                                          Mutual Mobile Services via API. Original
-                                          conversation ID is d401-4245-8a2c-
-                                          ee8573df320e435290.
-TI55JLE8GR            2025-09-05 18:06:49 Customer Transfer of Funds Charge            COMPLETED            0.00       7.00         10.79
-TI55JLE8GR            2025-09-05 18:06:49 Customer Transfer to 0717***429 -            COMPLETED            0.00       160.00       17.79
-                                          FLORENCE WANGARI KARITA
-TI58JL8KVO            2025-09-05 18:06:09 Funds received from 0113***176 - CELINE      COMPLETED            60.00      0.00         177.79
+TJK8L7VC8X            2025-10-20 18:01:12 Merchant Payment to 118184 - Quick Mart COMPLETED                 0.00       180.00       178.45
+                                          Buruburu
+TJK8L7U86F            2025-10-20 11:38:04 Pay Bill Charge                           COMPLETED               0.00       5.00         358.45
+TJK8L7U86F            2025-10-20 11:38:04 Pay Bill Online to 888880 - KPLC PREPAID COMPLETED                0.00       200.00       363.45
+                                          Acc. 04220067112
+TJK8L7U85S            2025-10-20 11:36:58 Airtime Purchase                          COMPLETED               0.00       20.00        563.45
+TJI8L7PC5C            2025-10-18 17:53:42 Customer Transfer to 0724***384 - EMILY COMPLETED                 0.00       70.00        583.45
+                                          WANGUI MUTURI
+TJI8L7PDHX            2025-10-18 17:46:46 Merchant Payment to 6780944 - NAIVAS T- COMPLETED                 0.00       241.00       653.45
+                                          SQUARE BURU BURU
+TJF8L7FC7R            2025-10-15 17:08:40 Customer Transfer of Funds Charge         COMPLETED               0.00       7.00         894.45
+TJF8L7FC7R            2025-10-15 17:08:40 Customer Payment to Small Business to     COMPLETED               0.00       200.00       901.45
+                                          0113***860 - EUNICE ANYANGO OWADE
+TJF8V7EQ9Z            2025-10-15 16:50:43 Funds received from 0113***176 - CELINE COMPLETED                 40.00      0.00         1,101.45
                                           SHEILA MUTHONI WAWERU
-TI50H6QY2K            2025-09-05 10:20:43 Merchant Payment to 7889698 -                COMPLETED            0.00       65.00        117.79
-                                          EVERLYNE NDANU KALUMU
-TI45DLKHN1            2025-09-04 16:16:28 Merchant Payment to 7216135 -                COMPLETED            0.00       140.00       182.79
-                                          BURUBURU SACCO KBX 270C
-TI41DH9JKN            2025-09-04 15:51:44 Merchant Payment to 147977 - MINT N          COMPLETED            0.00       2,800.00     322.79
-                                          SALT LIMITED0
-TI41DDNWTV            2025-09-04 15:30:49 Funds received from 0703***299 -             COMPLETED            1,425.00   0.00         3,122.79
-                                          PATIENCE JEMUTAI
-TI40CQQPUQ            2025-09-04 13:18:15 Pay Bill Charge                              COMPLETED            0.00       20.00        1,697.79
-TI40CQQPUQ            2025-09-04 13:18:15 Pay Bill to 880100 - NCBA BANK KENYA         COMPLETED            0.00       1,800.00     1,717.79
-                                          PLC. Acc. 447340
-TI46CQH4TI            2025-09-04 13:16:43 Funds received from 0703***299 -             COMPLETED            500.00     0.00         3,517.79
-                                          PATIENCE JEMUTAI
-TI43CN2V4V            2025-09-04 12:57:06 Merchant Payment to 642946 -                 COMPLETED            0.00       800.00       3,017.79
-                                          SuperCosmetics Ltd.
-TI46CC5PL6            2025-09-04 11:52:09 Merchant Payment to 7801623 -                COMPLETED            0.00       60.00        3,817.79
-                                          BURUBURU 58 TRAVELLERS SACCO
-                                          KCT 585Z
-TI46CBR9GQ            2025-09-04 11:49:42 Airtime Purchase                             COMPLETED            0.00       100.00       3,877.79
-
-
+TJE8L7BMAX            2025-10-14 13:28:18 Merchant Payment to 515034 - NAIVAS       COMPLETED               0.00       130.00       1,061.45
+                                          BURU BURU
+TJD8L79CKT            2025-10-13 19:14:40 Business Payment from 600502 - Old        COMPLETED               1,000.00   0.00         1,191.45
+                                          Mutual Mobile Services via API. Original
+                                          conversation ID is b147-4d80-adec-
+                                          9354d618be76140173.
+TJD8L78C3R            2025-10-13 13:44:42 Airtime Purchase                          COMPLETED               0.00       100.00       191.45
+TJD8L77WWC            2025-10-13 11:15:52 Customer Payment to Small Business to     COMPLETED               0.00       20.00        291.45
+                                          0113***860 - EUNICE ANYANGO OWADE
+TJD8L77VE6            2025-10-13 11:13:33 Customer Payment to Small Business to     COMPLETED               0.00       20.00        311.45
+                                          0113***860 - EUNICE ANYANGO OWADE
 
 
 Disclaimer: This record is produced for your personal use and is not transferable. If this record is sought to be produced in court,
@@ -307,28 +150,111 @@ Customercare@safaricom.co.ke
 
 Twitter: @SafaricomLtd | @safaricom_care| www.facebook.com/safaricomltd | For self-help dial *234# | Web: www.safaricom.co.ke | Terms and
 conditions apply
-                                                                                                                                Page 5 of 5
+                                                                                                                                Page 3 of 4
 
 
 Receipt No            Completion Time      Details                                     Transaction Status   Paid in    Withdraw Balance
                                                                                                                        n
-TI32AHVXSI            2025-09-03 21:36:26 Business Payment from 600502 - Old           COMPLETED            2,000.00   0.00     3,977.79
-                                          Mutual Mobile Services via API. Original
-                                          conversation ID is 4939-4ff5-b13b-
-                                          415f173f05f7286654.
-TI36ADYLPI            2025-09-03 21:14:47 OD Loan Repayment to 232323 - M-PESA         COMPLETED            0.00       22.21        1,977.79
-                                          Overdraw
-TI34ADYW50            2025-09-03 21:14:46 Funds received from 254722***003 -           COMPLETED            2,000.00   0.00         2,000.00
+TJD8L77TUC            2025-10-13 11:03:44 Merchant Payment to 7157360 - PAUL           COMPLETED            0.00       30.00    331.45
+                                          OCHIENG JUMA
+TJC8L753XL            2025-10-12 14:08:59 Merchant Payment to 9442788 - IRENE          COMPLETED            0.00       200.00       361.45
+                                          CHEBIWOTT TANGUREN
+TJC8L754SS            2025-10-12 13:46:18 Merchant Payment to 6300338 -                COMPLETED            0.00       100.00       561.45
+                                          BONIFACE KITHEKA NDIVO
+TJC2079179            2025-10-12 13:31:03 Funds received from 254722***003 -           COMPLETED            400.00     0.00         661.45
                                           SYLVIA WAWIRA NTHIGA
-TI18XX6T20            2025-09-01 19:08:37 Pay Bill Charge                              COMPLETED            0.00       67.00     0.00
-TI18XX6T20            2025-09-01 19:08:37 Pay Bill Online Fuliza M-Pesa to 303030 -    COMPLETED            0.00       25,000.00 67.00
-                                          Absa Bank Kenya PLC Acc. 2048710894
-TI18XX6T20            2025-09-01 19:08:37 OverDraft of Credit Party                    COMPLETED            21.99      0.00         25,067.00
-TI18XNPFRU            2025-09-01 18:35:14 Customer Transfer to 0113***176 - CELINE     COMPLETED            0.00       50.00        25,045.01
+TJB8L72WOE            2025-10-11 18:14:06 Customer Payment to Small Business to        COMPLETED            0.00       40.00        261.45
+                                          254723***518 - CATHERINE LEAH
+                                          WANJIKU
+TJB8L72WJE            2025-10-11 18:08:04 Customer Transfer of Funds Charge            COMPLETED            0.00       7.00         301.45
+TJB8L72WJE            2025-10-11 18:08:04 Customer Transfer to 0113***176 - CELINE     COMPLETED            0.00       167.00       308.45
                                           SHEILA MUTHONI WAWERU
-TI16XMUP2O            2025-09-01 18:32:02 Customer Transfer to 0113***176 - CELINE     COMPLETED            0.00       100.00       25,095.01
+TJ98L6W9I3            2025-10-09 18:09:50 Customer Payment to Small Business to        COMPLETED            0.00       100.00       475.45
+                                          0113***860 - EUNICE ANYANGO OWADE
+TJ98L6W4VA            2025-10-09 17:57:05 Merchant Payment to 118184 - Quick Mart      COMPLETED            0.00       533.00       575.45
+                                          Buruburu
+TJ98V6VOD1            2025-10-09 17:41:25 Funds received from 0113***176 - CELINE      COMPLETED            500.00     0.00         1,108.45
                                           SHEILA MUTHONI WAWERU
-TI15XE4WK7            2025-09-01 17:56:56 Funds received from 254722***003 -           COMPLETED            25,000.00 0.00          25,195.01
+TJ98L6VW85            2025-10-09 17:18:11 Customer Transfer of Funds Charge            COMPLETED            0.00       7.00         608.45
+TJ98L6VW85            2025-10-09 17:18:11 Customer Transfer to 0113***176 - CELINE     COMPLETED            0.00       400.00       615.45
+                                          SHEILA MUTHONI WAWERU
+TJ98L6W2PB            2025-10-09 17:17:47 Business Payment from 600502 - Old           COMPLETED            1,000.00   0.00         1,015.45
+                                          Mutual Mobile Services via API. Original
+                                          conversation ID is 1a91-4668-bd91-
+                                          14ff92037513910171.
+TJ88L6SNO2            2025-10-08 16:39:21 Recharge for Customer to 4093441 -           COMPLETED            0.00       20.00        15.45
+                                          SAFARICOM DATA BUNDLES by
+                                          0706***706 - WENDY RITA WANJIRU
+                                          WAWERU
+TJ88L6RK0V            2025-10-08 11:41:20 Customer Transfer of Funds Charge            COMPLETED            0.00       23.00        35.45
+TJ88L6RK0V            2025-10-08 11:41:20 Customer Transfer to 0113***176 - CELINE     COMPLETED            0.00       1,500.00     58.45
+                                          SHEILA MUTHONI WAWERU
+TJ88L6RPXF            2025-10-08 11:40:09 Business Payment from 600502 - Old           COMPLETED            1,500.00   0.00         1,558.45
+                                          Mutual Mobile Services via API. Original
+                                          conversation ID is 6ba0-42a2-a962-
+                                          630ff5dd29ca1226013.
+TJ88L6RRAU            2025-10-08 11:34:41 Recharge for Customer to 4093441 -           COMPLETED            0.00       20.00        58.45
+                                          SAFARICOM DATA BUNDLES by
+                                          0706***706 - WENDY RITA WANJIRU
+                                          WAWERU
+TJ78L6OUXP            2025-10-07 15:02:12 Recharge for Customer to 4093441 -           COMPLETED            0.00       20.00        78.45
+                                          SAFARICOM DATA BUNDLES by
+                                          0706***706 - WENDY RITA WANJIRU
+                                          WAWERU
+TJ68L6LCKG            2025-10-06 13:24:53 Recharge for Customer to 4093441 -           COMPLETED            0.00       20.00        98.45
+                                          SAFARICOM DATA BUNDLES by
+                                          0706***706 - WENDY RITA WANJIRU
+                                          WAWERU
+TJ58L6IC0L            2025-10-05 14:15:41 Customer Transfer of Funds Charge            COMPLETED            0.00       7.00         118.45
+TJ58L6IC0L            2025-10-05 14:15:41 Customer Transfer to 254728***321 -          COMPLETED            0.00       240.00       125.45
+                                          JAMES NDIRANGU GATHENDU
+TJ58L6IGG6            2025-10-05 14:06:51 Merchant Payment to 118184 - Quick Mart      COMPLETED            0.00       291.00       365.45
+                                          Buruburu
+TJ5206MMWU            2025-10-05 13:31:43 Funds received from 254722***003 -           COMPLETED            500.00     0.00         656.45
+                                          SYLVIA WAWIRA NTHIGA
+TJ58L6I4ZO            2025-10-05 13:24:22 Customer Transfer of Funds Charge            COMPLETED            0.00       13.00        156.45
+TJ58L6I4ZO            2025-10-05 13:24:22 Customer Transfer to 254724***246 -          COMPLETED            0.00       700.00       169.45
+                                          BENJAMIN EMMANUEL OLIANA
+TJ58L6HZWI            2025-10-05 12:56:45 Airtime Purchase                             COMPLETED            0.00       100.00       869.45
+TJ38L6D2KR            2025-10-03 20:58:13 Customer Transfer of Funds Charge            COMPLETED            0.00       23.00        969.45
+TJ38L6D2KR            2025-10-03 20:58:13 Customer Transfer to 0113***176 - CELINE     COMPLETED            0.00       1,500.00     992.45
+                                          SHEILA MUTHONI WAWERU
+
+
+Disclaimer: This record is produced for your personal use and is not transferable. If this record is sought to be produced in court,
+please contact the nearest retail shop for further guidance or send an email to Safaricom Customer Care via
+Customercare@safaricom.co.ke
+
+
+
+
+Twitter: @SafaricomLtd | @safaricom_care| www.facebook.com/safaricomltd | For self-help dial *234# | Web: www.safaricom.co.ke | Terms and
+conditions apply
+                                                                                                                                Page 4 of 4
+
+
+Receipt No            Completion Time      Details                                     Transaction Status   Paid in    Withdraw Balance
+                                                                                                                       n
+TJ38L6D6W6            2025-10-03 20:57:22 OD Loan Repayment to 232323 - M-PESA COMPLETED                    0.00       7.55     2,492.45
+                                          Overdraw
+TJ38L6D6W5            2025-10-03 20:57:21 Business Payment from 600502 - Old        COMPLETED               2,500.00   0.00         2,500.00
+                                          Mutual Mobile Services via API. Original
+                                          conversation ID is 9dc1-48d1-bc4f-
+                                          d75f93b148054201.
+TJ38L6BTXU            2025-10-03 15:09:42 Customer Send Money to Micro SME          COMPLETED               0.00       400.00       0.00
+                                          Business with Fuliza M-Pesa to 0113***860
+                                          - EUNICE ANYANGO OWADE
+TJ38L6BTXU            2025-10-03 15:09:42 Customer Transfer of Funds Charge         COMPLETED               0.00       7.00         400.00
+TJ38L6BTXU            2025-10-03 15:09:42 OverDraft of Credit Party                 COMPLETED               7.47       0.00         407.00
+TJ3206G7AS            2025-10-03 15:03:16 Funds received from 254722***003 -        COMPLETED               300.00     0.00         399.53
+                                          SYLVIA WAWIRA NTHIGA
+TJ28L67G1K            2025-10-02 11:11:25 Pay Bill Online to 303030 - Absa Bank     COMPLETED               0.00       200.00       99.53
+                                          Kenya PLC Acc. 2048710894
+TJ28L67G1K            2025-10-02 11:11:25 Pay Bill Charge                           COMPLETED               0.00       5.00      299.53
+TJ18L64QDG            2025-10-01 16:33:39 Pay Bill Charge                           COMPLETED               0.00       72.00     27,304.53
+TJ18L64QDG            2025-10-01 16:33:39 Pay Bill Online to 303030 - Absa Bank     COMPLETED               0.00       27,000.00 304.53
+                                          Kenya PLC Acc. 2048710894
+TJ12067WGI            2025-10-01 07:34:06 Funds received from 254722***003 -        COMPLETED               27,000.00 0.00          27,376.53
                                           SYLVIA WAWIRA NTHIGA
 
 
