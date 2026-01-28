@@ -2,8 +2,10 @@ package main
 
 import (
 	"log"
-	"mpesa-finance/handlers"
-	"mpesa-finance/utils"
+	"mpesa-finance/config"
+	"mpesa-finance/internal/handlers"
+	"mpesa-finance/internal/middleware"
+	utils "mpesa-finance/internal/services"
 	"net/http"
 	"os"
 
@@ -11,7 +13,43 @@ import (
 	"github.com/joho/godotenv"
 )
 
+func healthHandler(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("OK"))
+}
+
 func main() {
+	// Load configuration
+	cfg, err := config.Load()
+	if err != nil {
+		log.Fatalf("Failed to load config: %v", err)
+	}
+	//Create handlers
+	uploadHandler := handlers.NewUploadHandler(cfg.UploadDir)
+	//Create router
+	mux := http.NewServeMux()
+	// Register routes
+
+	mux.HandleFunc("/upload", uploadHandler.HandleUpload)
+	mux.HandleFunc("/health", healthHandler)
+
+	// Wrap with middleware
+	var handler http.Handler = mux
+
+	//Add security headers to all requests
+	handler = middleware.SecurityHeaders(handler)
+	// Add CORS
+	allowedOrigins := []string{"http://localhost:3000"}
+	handler = middleware.CORS(allowedOrigins)(handler)
+
+	//Start server
+
+	addr := ":" + cfg.Port
+	log.Printf("Starting server on %s", addr)
+	if err := http.ListenAndServe(addr, handler); err != nil {
+		log.Fatalf("Failed to start server: %v", err)
+	}
+
 	//load environment variables
 	if err := godotenv.Load(); err != nil {
 		log.Fatal("Error loading .env file")
@@ -47,7 +85,10 @@ func main() {
 	})
 
 	// API endpoints
-	r.POST("/upload", handlers.UploadPDFHandler)
+
+	r.POST("/upload", func(c *gin.Context) {
+		uploadHandler.HandleUpload(c.Writer, c.Request)
+	})
 	r.GET("/summary", handlers.SummaryHandler)
 	//ai cateorizer
 	r.GET("/ai-categorize", handlers.AICategorizeHandler)

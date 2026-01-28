@@ -1,0 +1,48 @@
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-bookworm
+    container_name: mpesa_postgres
+    environment:
+      POSTGRES_USER: mpesa_user
+      POSTGRES_PASSWORD: mpesa_pass
+      POSTGRES_DB: mpesa_analyzer
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mpesa_user"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: mpesa_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # pgAdmin 
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: mpesa_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
+  redis_data:

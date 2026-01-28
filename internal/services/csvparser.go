@@ -1,4 +1,4 @@
-package utils
+package services
 
 import (
 	"encoding/csv"
@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"mpesa-finance/models"
+	"mpesa-finance/internal/models"
 )
 
 // ParseCSV reads an M-Pesa CSV file and returns a list of Transaction structs

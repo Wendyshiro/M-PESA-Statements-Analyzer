@@ -17,6 +17,7 @@ vendor/
 # Environment variables
 .env
 .env.local
+.env.example
 *.env
 
 # IDE files

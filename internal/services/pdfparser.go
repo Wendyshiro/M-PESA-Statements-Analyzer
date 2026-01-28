@@ -1,11 +1,11 @@
-package utils
+package services
 
 import (
 	"fmt"
 	"strconv"
 	"strings"
 
-	"mpesa-finance/models"
+	"mpesa-finance/internal/models"
 )
 
 // ParseTransactionsFromText parses extracted PDF text into Transaction structs

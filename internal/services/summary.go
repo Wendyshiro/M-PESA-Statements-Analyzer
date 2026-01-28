@@ -1,8 +1,8 @@
-package utils
+package services
 
 import (
 	"fmt"
-	"mpesa-finance/models"
+	"mpesa-finance/internal/models"
 	"strings"
 )
 

@@ -2,14 +2,14 @@ package handlers
 
 import (
 	"log"
-	"mpesa-finance/utils"
+	"mpesa-finance/internal/services"
 	"net/http"
 	"os"
 
 	"github.com/gin-gonic/gin"
 )
 
-var AICategorizer *utils.AICategorizer
+var AICategorizer *services.AICategorizer
 
 func init() {
 	//initialize the AI Categorizer with the api key from environment variable
@@ -19,7 +19,7 @@ func init() {
 		log.Printf("WARNING: OPENAI_API_KEY environment variable not set. AI Categorization will not work")
 
 	} else {
-		AICategorizer, err = utils.NewAICategorizer(apiKey)
+		AICategorizer, err = services.NewAICategorizer(apiKey)
 		if err != nil {
 			log.Printf("Failed to initialize AI categorizer: %v", err)
 
