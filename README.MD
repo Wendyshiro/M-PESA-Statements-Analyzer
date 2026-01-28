@@ -17,24 +17,35 @@ Visualization Dashboard – Displays charts and trends using Chart.js
 Offline-Ready – Runs locally without needing an internet connection
 
 🧠 Tech Stack
+
 Component	Purpose
+
 Go	Backend logic for parsing and data analysis
+
 pdftotext	Converts PDFs to plain text
+
 HTML / Chart.js	Frontend visualization
+
 JSON / CSV	Data storage and summary export
+
+OPENAI- For improved categorization
 
 🧰 Installation
 
 Clone this repository
+
 → git clone https://github.com/<your-username>/mpesa-statement-analyzer.git
+
 → cd mpesa-statement-analyzer
 
 Run the Go program
+
 → go run main.go
 
 💡 Tip: Make sure pdftotext is installed and added to your system path.
 
 ⚙️ Usage
+
 Option 1 – Web Interface
 
 1.Run the app with go run main.go.
