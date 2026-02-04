@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"encoding/json"
 	"fmt"
 	"io"
 	"log"
@@ -33,11 +32,6 @@ type UploadResponse struct {
 	JobID    string `json:"job_id"`
 	Message  string `json:"message"`
 	Filename string `json:"filename"`
-}
-
-type ErrorResponse struct {
-	Error string `json:"error"`
-	Code  string `json:"code"`
 }
 
 func (h *UploadHandler) HandleUpload(w http.ResponseWriter, r *http.Request) {
@@ -99,18 +93,4 @@ func (h *UploadHandler) HandleUpload(w http.ResponseWriter, r *http.Request) {
 	}
 
 	respondJSON(w, response, http.StatusAccepted)
-}
-
-func respondJSON(w http.ResponseWriter, data interface{}, status int) {
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(status)
-	json.NewEncoder(w).Encode(data)
-}
-
-func respondError(w http.ResponseWriter, message, code string, status int) {
-	response := ErrorResponse{
-		Error: message,
-		Code:  code,
-	}
-	respondJSON(w, response, status)
 }

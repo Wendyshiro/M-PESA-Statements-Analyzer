@@ -2,12 +2,14 @@ package main
 
 import (
 	"log"
+	"net/http"
+	"os"
+
 	"mpesa-finance/config"
+	"mpesa-finance/internal/auth"
 	"mpesa-finance/internal/handlers"
 	"mpesa-finance/internal/middleware"
 	utils "mpesa-finance/internal/services"
-	"net/http"
-	"os"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
@@ -24,23 +26,29 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed to load config: %v", err)
 	}
+	//Create services
+	authService := auth.NewService(cfg.JWTSecret)
+
 	//Create handlers
 	uploadHandler := handlers.NewUploadHandler(cfg.UploadDir)
+	authHandler := handlers.NewAuthHandler(authService)
 	//Create router
 	mux := http.NewServeMux()
 	// Register routes
 
 	mux.HandleFunc("/upload", uploadHandler.HandleUpload)
 	mux.HandleFunc("/health", healthHandler)
+	mux.HandleFunc("/register", authHandler.Register)
+	mux.HandleFunc("/login", authHandler.Login)
+
+	// Protected routes auth required
+	protectedMux := http.NewServeMux()
+	protectedMux.HandleFunc("/upload", uploadHandler.HandleUpload)
 
 	// Wrap with middleware
 	var handler http.Handler = mux
-
-	//Add security headers to all requests
 	handler = middleware.SecurityHeaders(handler)
-	// Add CORS
-	allowedOrigins := []string{"http://localhost:3000"}
-	handler = middleware.CORS(allowedOrigins)(handler)
+	handler = middleware.CORS([]string{"http://localhost:3000"})(handler)
 
 	//Start server
 
