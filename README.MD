@@ -83,7 +83,19 @@ json
 
 🧩 Roadmap
 
-Docker containerization
+Docker containerization - ✅
+
+Enhanched File Organization to enable microservice architecture - ✅
+
+Security Headers - ✅
+
+Input validation - ✅
+
+TODO
+
+ JWT Authentication
+
+ Database Setup 
 
 Cloud Run deployment
 
