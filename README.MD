@@ -1,12 +1,12 @@
-﻿# ðŸ§¾ M-PESA Statement Analyzer
+# 🧾 M-PESA Statement Analyzer
 
 > A secure, production-grade financial analysis platform built with Go. Transform your M-PESA statements into actionable insights with AI-powered categorization and interactive dashboards.
 
- â€¢ [Report Bug](https://github.com/Wendyshiro/M-PESA-Statements-Analyzer/issues) â€¢ [Request Feature](https://github.com/Wendyshiro/M-PESA-Statements-Analyzer/issues)
+ • [Report Bug](https://github.com/Wendyshiro/M-PESA-Statements-Analyzer/issues) • [Request Feature](https://github.com/Wendyshiro/M-PESA-Statements-Analyzer/issues)
 
 ---
 
-## ðŸ“– Table of Contents
+## 📖 Table of Contents
 
 - [About The Project](#-about-the-project)
 - [Features](#-features)
@@ -22,7 +22,7 @@
 
 ---
 
-## ðŸŽ¯ About The Project
+## 🎯 About The Project
 
 M-PESA Statement Analyzer is a comprehensive financial management tool that helps users understand their spending patterns by parsing M-PESA PDF statements, automatically categorizing transactions, and presenting beautiful visualizations.
 
@@ -42,9 +42,9 @@ This application provides:
 
 ---
 
-## âœ¨ Features
+## ✨ Features
 
-### ðŸ” Security & Authentication
+### 🔐 Security & Authentication
 - JWT-based authentication system
 - Bcrypt password hashing
 - Secure file validation and sanitization
@@ -52,7 +52,7 @@ This application provides:
 - Input validation on all endpoints
 - Encrypted data storage (coming in Phase 4)
 
-### ðŸ“Š Financial Analysis
+### 📊 Financial Analysis
 - PDF statement parsing and text extraction
 - AI-powered transaction categorization using OpenAI
 - Summary reports (total inflows, outflows, balance)
@@ -60,7 +60,7 @@ This application provides:
 - Time-series trend analysis (coming in Phase 3)
 - Custom date range filtering (coming in Phase 3)
 
-### ðŸ—ï¸ Architecture & Performance
+### 🏗️ Architecture & Performance
 - Clean architecture with repository pattern
 - PostgreSQL with optimized indexes
 - Database migration system
@@ -69,7 +69,7 @@ This application provides:
 - Docker containerization
 - Horizontal scalability ready
 
-### ðŸ“± User Experience
+### 📱 User Experience
 - RESTful API design
 - Interactive web dashboard
 - Real-time job status tracking (coming in Phase 3)
@@ -78,7 +78,7 @@ This application provides:
 
 ---
 
-## ðŸ› ï¸ Tech Stack
+## 🛠️ Tech Stack
 
 ### Backend
 - **Go 1.21+** - Main programming language
@@ -104,7 +104,7 @@ This application provides:
 
 ---
 
-## ðŸš€ Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
@@ -201,109 +201,109 @@ curl -X POST http://localhost:8080/upload \
 
 ---
 
-## ðŸ“ Project Structure
+## 📁 Project Structure
 
 ```
 M-PESA-Statements-Analyzer/
-â”‚
-â”œâ”€â”€ cmd/
-â”‚   â””â”€â”€ api/
-â”‚       â””â”€â”€ main.go              # Application entry point
-â”‚
-â”œâ”€â”€ handlers/                    # HTTP request handlers
-â”‚   â”œâ”€â”€ auth.go                  # Registration & login
-â”‚   â”œâ”€â”€ upload.go                # File upload handling
-â”‚   â””â”€â”€ health.go                # Health checks
-â”‚
-â”œâ”€â”€ models/                      # Data models
-â”‚   â”œâ”€â”€ user.go                  # User entity
-â”‚   â”œâ”€â”€ job.go                   # Processing job entity
-â”‚   â””â”€â”€ transaction.go           # Transaction entity
-â”‚
-â”œâ”€â”€ repository/                  # Database layer (Data Access)
-â”‚   â”œâ”€â”€ user.go                  # User DB operations
-â”‚   â”œâ”€â”€ job.go                   # Job DB operations
-â”‚   â””â”€â”€ transaction.go           # Transaction DB operations
-â”‚
-â”œâ”€â”€ middleware/                  # HTTP middleware
-â”‚   â”œâ”€â”€ auth.go                  # JWT authentication
-â”‚   â”œâ”€â”€ security.go              # Security headers
-â”‚   â””â”€â”€ validation.go            # Input validation
-â”‚
-â”œâ”€â”€ auth/                        # Authentication logic
-â”‚   â””â”€â”€ jwt.go                   # Token management
-â”‚
-â”œâ”€â”€ database/                    # Database connection
-â”‚   â””â”€â”€ database.go              # Pool & health checks
-â”‚
-â”œâ”€â”€ config/                      # Configuration
-â”‚   â””â”€â”€ config.go                # Env variable loader
-â”‚
-â”œâ”€â”€ utils/                       # Utility functions
-â”‚   â”œâ”€â”€ pdf_parser.go            # PDF extraction
-â”‚   â””â”€â”€ categorizer.go           # AI categorization
-â”‚
-â”œâ”€â”€ migrations/                  # Database migrations
-â”‚   â”œâ”€â”€ 000001_create_users_table.up.sql
-â”‚   â”œâ”€â”€ 000001_create_users_table.down.sql
-â”‚   â”œâ”€â”€ 000002_create_jobs_table.up.sql
-â”‚   â””â”€â”€ ...
-â”‚
-â”œâ”€â”€ dashboard/                   # Frontend
-â”‚   â””â”€â”€ index.html
-â”‚
-â”œâ”€â”€ .env.example                 # Environment template
-â”œâ”€â”€ .gitignore
-â”œâ”€â”€ docker-compose.yml           # Docker services
-â”œâ”€â”€ Dockerfile                   # Application container
-â”œâ”€â”€ Makefile                     # Development commands
-â”œâ”€â”€ go.mod
-â”œâ”€â”€ go.sum
-â””â”€â”€ README.md
+│
+├── cmd/
+│   └── api/
+│       └── main.go              # Application entry point
+│
+├── handlers/                    # HTTP request handlers
+│   ├── auth.go                  # Registration & login
+│   ├── upload.go                # File upload handling
+│   └── health.go                # Health checks
+│
+├── models/                      # Data models
+│   ├── user.go                  # User entity
+│   ├── job.go                   # Processing job entity
+│   └── transaction.go           # Transaction entity
+│
+├── repository/                  # Database layer (Data Access)
+│   ├── user.go                  # User DB operations
+│   ├── job.go                   # Job DB operations
+│   └── transaction.go           # Transaction DB operations
+│
+├── middleware/                  # HTTP middleware
+│   ├── auth.go                  # JWT authentication
+│   ├── security.go              # Security headers
+│   └── validation.go            # Input validation
+│
+├── auth/                        # Authentication logic
+│   └── jwt.go                   # Token management
+│
+├── database/                    # Database connection
+│   └── database.go              # Pool & health checks
+│
+├── config/                      # Configuration
+│   └── config.go                # Env variable loader
+│
+├── utils/                       # Utility functions
+│   ├── pdf_parser.go            # PDF extraction
+│   └── categorizer.go           # AI categorization
+│
+├── migrations/                  # Database migrations
+│   ├── 000001_create_users_table.up.sql
+│   ├── 000001_create_users_table.down.sql
+│   ├── 000002_create_jobs_table.up.sql
+│   └── ...
+│
+├── dashboard/                   # Frontend
+│   └── index.html
+│
+├── .env.example                 # Environment template
+├── .gitignore
+├── docker-compose.yml           # Docker services
+├── Dockerfile                   # Application container
+├── Makefile                     # Development commands
+├── go.mod
+├── go.sum
+└── README.md
 ```
 
 ### Architecture Diagram
 
 ```
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚                     Client Layer                        â”‚
-â”‚              (Browser / Mobile / Postman)               â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-                     â”‚ HTTP/HTTPS
-                     â†“
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚                  API Gateway Layer                      â”‚
-â”‚              (Middleware: Auth, CORS, etc)              â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-                     â”‚
-                     â†“
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚                   Handlers Layer                        â”‚
-â”‚           (auth.go, upload.go, health.go)               â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-                     â”‚
-                     â†“
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚                  Service Layer                          â”‚
-â”‚        (Business Logic: PDF Parsing, AI, etc)           â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-                     â”‚
-                     â†“
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚                 Repository Layer                        â”‚
-â”‚              (Database Operations)                      â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-                     â”‚
-                     â†“
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚                  Database Layer                         â”‚
-â”‚            PostgreSQL + Redis Cache                     â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+┌─────────────────────────────────────────────────────────┐
+│                     Client Layer                        │
+│              (Browser / Mobile / Postman)               │
+└────────────────────┬────────────────────────────────────┘
+                     │ HTTP/HTTPS
+                     ↓
+┌─────────────────────────────────────────────────────────┐
+│                  API Gateway Layer                      │
+│              (Middleware: Auth, CORS, etc)              │
+└────────────────────┬────────────────────────────────────┘
+                     │
+                     ↓
+┌─────────────────────────────────────────────────────────┐
+│                   Handlers Layer                        │
+│           (auth.go, upload.go, health.go)               │
+└────────────────────┬────────────────────────────────────┘
+                     │
+                     ↓
+┌─────────────────────────────────────────────────────────┐
+│                  Service Layer                          │
+│        (Business Logic: PDF Parsing, AI, etc)           │
+└────────────────────┬────────────────────────────────────┘
+                     │
+                     ↓
+┌─────────────────────────────────────────────────────────┐
+│                 Repository Layer                        │
+│              (Database Operations)                      │
+└────────────────────┬────────────────────────────────────┘
+                     │
+                     ↓
+┌─────────────────────────────────────────────────────────┐
+│                  Database Layer                         │
+│            PostgreSQL + Redis Cache                     │
+└─────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## ðŸ“š API Documentation
+## 📚 API Documentation
 
 ### Base URL
 ```
@@ -319,7 +319,7 @@ Authorization: Bearer <your-token>
 
 ### Endpoints
 
-#### ðŸŸ¢ Public Endpoints
+#### 🟢 Public Endpoints
 
 <details>
 <summary><b>POST /register</b> - Register a new user</summary>
@@ -406,7 +406,7 @@ curl http://localhost:8080/health
 
 </details>
 
-#### ðŸ”’ Protected Endpoints
+#### 🔒 Protected Endpoints
 
 <details>
 <summary><b>POST /upload</b> - Upload M-PESA statement</summary>
@@ -458,10 +458,10 @@ All errors follow this format:
 
 ---
 
-## ðŸ—ºï¸ Development Roadmap
+## 🗺️ Development Roadmap
 
-### âœ… Phase 1: Basic Security (Completed)
-**Status:** âœ… Complete (Week 1-3)
+### ✅ Phase 1: Basic Security (Completed)
+**Status:** ✅ Complete (Week 1-3)
 
 - [x] File validation and sanitization
 - [x] JWT-based authentication
@@ -470,8 +470,8 @@ All errors follow this format:
 - [x] Input validation middleware
 - [x] Error handling
 
-### ðŸ”„ Phase 2: Database Integration (In Progress)
-**Status:** ðŸ”„ In Progress (Week 4)
+### 🔄 Phase 2: Database Integration (In Progress)
+**Status:** 🔄 In Progress (Week 4)
 
 - [x] PostgreSQL setup with Docker
 - [x] Database migration system
@@ -481,8 +481,8 @@ All errors follow this format:
 - [ ] Database indexes and optimization
 - [ ] Connection pooling
 
-### ðŸ“‹ Phase 3: Async Processing (Upcoming)
-**Status:** ðŸ“… Planned (Week 5-6)
+### 📋 Phase 3: Async Processing (Upcoming)
+**Status:** 📅 Planned (Week 5-6)
 
 - [ ] Redis integration
 - [ ] Message queue setup (RabbitMQ or Redis Queue)
@@ -492,8 +492,8 @@ All errors follow this format:
 - [ ] Job result storage
 - [ ] Webhook notifications
 
-### âš¡ Phase 4: Caching & Performance (Upcoming)
-**Status:** ðŸ“… Planned (Week 7-8)
+### ⚡ Phase 4: Caching & Performance (Upcoming)
+**Status:** 📅 Planned (Week 7-8)
 
 - [ ] Redis caching layer
 - [ ] Category result caching
@@ -503,8 +503,8 @@ All errors follow this format:
 - [ ] Query result pagination
 - [ ] Database connection pooling tuning
 
-### ðŸ§ª Phase 5: Testing & CI/CD (Upcoming)
-**Status:** ðŸ“… Planned (Week 9-10)
+### 🧪 Phase 5: Testing & CI/CD (Upcoming)
+**Status:** 📅 Planned (Week 9-10)
 
 - [ ] Unit tests for all layers
 - [ ] Integration tests
@@ -514,8 +514,8 @@ All errors follow this format:
 - [ ] Security scanning (gosec)
 - [ ] Dependency vulnerability scanning
 
-### ðŸš€ Phase 6: Production Ready (Upcoming)
-**Status:** ðŸ“… Planned (Week 11-12)
+### 🚀 Phase 6: Production Ready (Upcoming)
+**Status:** 📅 Planned (Week 11-12)
 
 - [ ] Prometheus metrics
 - [ ] Structured logging
@@ -526,7 +526,7 @@ All errors follow this format:
 - [ ] Disaster recovery procedures
 - [ ] Documentation site
 
-### ðŸ”® Future Enhancements
+### 🔮 Future Enhancements
 
 - [ ] Multi-language support (i18n)
 - [ ] PDF statement templates for other providers
@@ -540,7 +540,7 @@ All errors follow this format:
 
 ---
 
-## ðŸ§ª Testing
+## 🧪 Testing
 
 ### Run Tests
 
@@ -571,16 +571,16 @@ go tool cover -html=coverage.out
    - `token`: (auto-filled after login)
 
 **Testing Workflow:**
-1. Register â†’ Get token
-2. Login â†’ Verify token
-3. Upload â†’ Check file validation
-4. Health â†’ Verify services
+1. Register → Get token
+2. Login → Verify token
+3. Upload → Check file validation
+4. Health → Verify services
 
 See [Postman Testing Guide](docs/postman-testing-guide.md) for detailed instructions.
 
 ---
 
-## ðŸ—„ï¸ Database
+## 🗄️ Database
 
 ### Schema Overview
 
@@ -625,7 +625,7 @@ make migrate-version
 
 ---
 
-## ðŸ³ Docker
+## 🐳 Docker
 
 ### Development
 
@@ -661,7 +661,7 @@ docker-compose -f docker-compose.prod.yml up -d
 
 ---
 
-## ðŸ¤ Contributing
+## 🤝 Contributing
 
 Contributions are what make the open-source community amazing! Any contributions you make are **greatly appreciated**.
 
@@ -725,7 +725,7 @@ Look for issues tagged with `good first issue` or `help wanted`:
 
 ---
 
-## ðŸ“„ License
+## 📄 License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
@@ -733,19 +733,20 @@ Distributed under the MIT License. See `LICENSE` for more information.
 MIT License
 
 Copyright (c) 2026 Wendyshiro
+```
 
 ---
 
-## ðŸ“ž Contact
+## 📞 Contact
 
 **Wendyshiro**
 - GitHub: [@Wendyshiro](https://github.com/Wendyshiro)
 - Project Link: [https://github.com/Wendyshiro/M-PESA-Statements-Analyzer](https://github.com/Wendyshiro/M-PESA-Statements-Analyzer)
-- Live Demo: Coming soon!!!
+- Live Demo: [https://m-pesa-statements-analyzer.vercel.app](https://m-pesa-statements-analyzer.vercel.app)
 
 ---
 
-## ðŸ™ Acknowledgments
+## 🙏 Acknowledgments
 
 This project was built with the help of amazing open-source tools and resources:
 
@@ -770,12 +771,20 @@ This project was built with the help of amazing open-source tools and resources:
 - Open-source contributors worldwide
 
 ---
+
+## 📊 Project Stats
+
+![GitHub Stars](https://img.shields.io/github/stars/Wendyshiro/M-PESA-Statements-Analyzer?style=social)
+![GitHub Forks](https://img.shields.io/github/forks/Wendyshiro/M-PESA-Statements-Analyzer?style=social)
+![GitHub Issues](https://img.shields.io/github/issues/Wendyshiro/M-PESA-Statements-Analyzer)
+![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Wendyshiro/M-PESA-Statements-Analyzer)
+
 ---
 
 <div align="center">
 
-### â­ Star this repository if you found it helpful!
+### ⭐ Star this repository if you found it helpful!
 
-Made with â¤ï¸ by [Wendyshiro](https://github.com/Wendyshiro)
+Made with ❤️ by [Wendyshiro](https://github.com/Wendyshiro)
 
 </div>
