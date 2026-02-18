@@ -71,6 +71,6 @@ func HashPassword(password string) (string, error) {
 }
 
 // CheckPassword compares a password with a hash
-func CheckPassword(hash, password string) error {
+func CheckPassword(password, hash string) error {
 	return bcrypt.CompareHashAndPassword([]byte(hash), []byte(password))
 }

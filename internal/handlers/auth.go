@@ -132,21 +132,29 @@ func (h *AuthHandler) Login(w http.ResponseWriter, r *http.Request) {
 
 	user, err := h.userRepo.GetByEmail(ctx, req.Email)
 	if err != nil {
+		log.Printf("DEBUG: User not found: %v", err)
 		respondError(w, "Invalid credentials", "INVALID_CREDENTIALS", http.StatusUnauthorized)
 		return
 	}
+	//logs
+	log.Printf("DEBUG: Found user: %s, hash: %s", user.Email, user.PasswordHash[:20]+"....")
+	log.Printf("DEBUG: Checking password: %s", req.Password)
 	//check password
 	if err := auth.CheckPassword(req.Password, user.PasswordHash); err != nil {
+		log.Printf("DEBUG: Password check FAILED! Error: %v", err)
+		log.Printf("DEBUG: Hash length: %d", len(user.PasswordHash))
 		respondError(w, "Invalid credentials", "INVALID_CREDENTIALS", http.StatusUnauthorized)
 		return
 	}
+	log.Printf("DEBUG: Password check PASSED! Generating token...")
 	//generate token
 	token, err := h.authService.GenerateToken(user.ID, user.Email)
 	if err != nil {
-		log.Printf("Failed to generate token:%v", err)
+		log.Printf("DEBUG:Failed to generate token:%v", err)
 		respondError(w, "Failed to create token", "INTERNAL_ERROR", http.StatusInternalServerError)
 		return
 	}
+	log.Printf("DEBUG: Token generated successfully!")
 	response := AuthResponse{
 		Token: token,
 		User:  *user,
