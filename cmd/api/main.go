@@ -7,8 +7,10 @@ import (
 
 	"mpesa-finance/config"
 	"mpesa-finance/internal/auth"
+	"mpesa-finance/internal/database"
 	"mpesa-finance/internal/handlers"
 	"mpesa-finance/internal/middleware"
+	"mpesa-finance/internal/repository"
 	utils "mpesa-finance/internal/services"
 
 	"github.com/gin-gonic/gin"
@@ -26,12 +28,21 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed to load config: %v", err)
 	}
-	//Create services
+	//connect to database
+	db, err := database.New(cfg.DatabaseURL)
+	if err != nil {
+		log.Fatalf("Failed to connect to database: %v", err)
+	}
+	defer db.Close()
+	//create repositories
+	userRepo := repository.NewUserRepository(db)
+
+	//create services
 	authService := auth.NewService(cfg.JWTSecret)
 
 	//Create handlers
 	uploadHandler := handlers.NewUploadHandler(cfg.UploadDir)
-	authHandler := handlers.NewAuthHandler(authService)
+	authHandler := handlers.NewAuthHandler(authService, userRepo)
 	//Create router
 	mux := http.NewServeMux()
 	// Register routes

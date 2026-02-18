@@ -36,7 +36,7 @@ func (s *Service) GenerateToken(userID, email string) (string, error) {
 			NotBefore: jwt.NewNumericDate(time.Now()),
 		},
 	}
-	token := jwt.NewWithClaims(jwt.SigningMethodES256, claims)
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 	return token.SignedString(s.secretKey)
 }
 
