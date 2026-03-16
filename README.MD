@@ -8,6 +8,7 @@
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
 > 🚧 Active development in progress. Vercel deployment coming soon.
+
 > A secure, production-grade financial analysis platform built with Go. Transform your M-PESA statements into actionable insights with AI-powered categorization and interactive dashboards.
 
  • [Report Bug](https://github.com/Wendyshiro/M-PESA-Statements-Analyzer/issues) • [Request Feature](https://github.com/Wendyshiro/M-PESA-Statements-Analyzer/issues)
