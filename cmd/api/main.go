@@ -2,9 +2,7 @@ package main
 
 import (
 	"log"
-	"net/http"
-	"os"
-
+	"mpesa-finance/cache"
 	"mpesa-finance/config"
 	"mpesa-finance/internal/auth"
 	"mpesa-finance/internal/database"
@@ -12,6 +10,10 @@ import (
 	"mpesa-finance/internal/middleware"
 	"mpesa-finance/internal/repository"
 	utils "mpesa-finance/internal/services"
+	"mpesa-finance/queue"
+	"net/http"
+	"os"
+	"strings"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
@@ -34,27 +36,59 @@ func main() {
 		log.Fatalf("Failed to connect to database: %v", err)
 	}
 	defer db.Close()
+	log.Println("Connected to database successfully")
+	//Connect to redis
+	redisCache, err := cache.NewRedisCache(cfg.RedisURL)
+	if err != nil {
+		log.Fatalf("Failed to connect to Redis: %v", err)
+	}
+	defer redisCache.Close()
+	log.Println("Connected to Redis successfully")
+	//Create job queue
+	jobQueue, err := queue.NewJobQueue(cfg.RedisURL)
+	if err != nil {
+		log.Fatalf("Failed to created job queue: %v", err)
+
+	}
+	defer jobQueue.Close()
+	log.Println("Job queue initialized")
+
 	//create repositories
 	userRepo := repository.NewUserRepository(db)
+	jobRepo := repository.NewJobRepository(db)
 
 	//create services
 	authService := auth.NewService(cfg.JWTSecret)
 
 	//Create handlers
-	uploadHandler := handlers.NewUploadHandler(cfg.UploadDir)
+	uploadHandler := handlers.NewUploadHandler(cfg.UploadDir, jobRepo, jobQueue)
 	authHandler := handlers.NewAuthHandler(authService, userRepo)
+	jobHandler := handlers.NewJobHandler(jobRepo)
+	healthHandler := handlers.NewHealthHandler(db, redisCache)
 	//Create router
 	mux := http.NewServeMux()
 	// Register routes
 
 	mux.HandleFunc("/upload", uploadHandler.HandleUpload)
-	mux.HandleFunc("/health", healthHandler)
+	mux.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request){
+		healthHandler.Check(w, r)
+	})
 	mux.HandleFunc("/register", authHandler.Register)
 	mux.HandleFunc("/login", authHandler.Login)
 
 	// Protected routes auth required
 	protectedMux := http.NewServeMux()
 	protectedMux.HandleFunc("/upload", uploadHandler.HandleUpload)
+	protectedMux.HandleFunc("/jobs", jobHandler.GetUserJobs)
+	protectedMux.HandleFunc("/jobs/", func(w http.ResponseWriter, r *http.Request) {
+		if strings.HasPrefix(r.URL.Path, "/jobs/") && len(strings.TrimPrefix(r.URL.Path, "/jobs/")) > 0 {
+			jobHandler.GetJobStatus(w, r)
+		} else {
+			http.NotFound(w, r)
+		}
+	})
+
+	mux.Handle("/", middleware.AuthMiddleware(authService)(protectedMux))
 
 	// Wrap with middleware
 	var handler http.Handler = mux
@@ -65,6 +99,8 @@ func main() {
 
 	addr := ":" + cfg.Port
 	log.Printf("Starting server on %s", addr)
+	log.Printf("Starting database server on %s", addr)
+	log.Printf("Starting Redis server on %s", addr)
 	if err := http.ListenAndServe(addr, handler); err != nil {
 		log.Fatalf("Failed to start server: %v", err)
 	}

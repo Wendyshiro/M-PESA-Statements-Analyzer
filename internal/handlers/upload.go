@@ -1,23 +1,30 @@
 package handlers
 
 import (
+	"context"
 	"fmt"
 	"io"
 	"log"
 	"net/http"
 	"os"
+	"time"
 	"path/filepath"
 
 	"mpesa-finance/internal/middleware"
+	"mpesa-finance/internal/models"
+	"mpesa-finance/internal/repository"
+	"mpesa-finance/queue"
 
 	"github.com/google/uuid"
 )
 
 type UploadHandler struct {
 	uploadDir string
+	jobRepo *repository.JobRepository
+	jobQueue *queue.JobQueue
 }
 
-func NewUploadHandler(uploadDir string) *UploadHandler {
+func NewUploadHandler(uploadDir string, jobRepo *repository.JobRepository, jobQueue *queue.JobQueue) *UploadHandler {
 	// Create upload directory if it doesn't exist
 	if err := os.MkdirAll(uploadDir, 0755); err != nil {
 		log.Fatalf("Failed to create upload directory: %v", err)
@@ -32,6 +39,7 @@ type UploadResponse struct {
 	JobID    string `json:"job_id"`
 	Message  string `json:"message"`
 	Filename string `json:"filename"`
+	Status string `json:"status"`
 }
 
 func (h *UploadHandler) HandleUpload(w http.ResponseWriter, r *http.Request) {
@@ -39,6 +47,11 @@ func (h *UploadHandler) HandleUpload(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		respondError(w, "Method not allowed", "METHOD_NOT_ALLOWED", http.StatusMethodNotAllowed)
 		return
+	}
+	//get user from context
+	claims, ok := middleware.GetClaims(r)
+	if !ok {
+		respondError(w,"Unathorized", "UNAUTHORIZED", http.StatusUnauthorized)
 	}
 
 	// Parse multipart form (32MB max memory)
@@ -65,10 +78,10 @@ func (h *UploadHandler) HandleUpload(w http.ResponseWriter, r *http.Request) {
 	jobID := uuid.New().String()
 	sanitizedName := middleware.SanitizeFilename(header.Filename)
 	filename := fmt.Sprintf("%s_%s", jobID, sanitizedName)
-	filepath := filepath.Join(h.uploadDir, filename)
+	filePath := filepath.Join(h.uploadDir, filename)
 
 	// Save file
-	dst, err := os.Create(filepath)
+	dst, err := os.Create(filePath)
 	if err != nil {
 		log.Printf("Failed to create file: %v", err)
 		respondError(w, "Failed to save file", "INTERNAL_ERROR", http.StatusInternalServerError)
@@ -81,16 +94,37 @@ func (h *UploadHandler) HandleUpload(w http.ResponseWriter, r *http.Request) {
 		respondError(w, "Failed to save file", "INTERNAL_ERROR", http.StatusInternalServerError)
 		return
 	}
-
-	// TODO: Queue job for processing (we'll implement this later)
-	log.Printf("File uploaded successfully: %s (job: %s)", sanitizedName, jobID)
-
-	// Respond with success
-	response := UploadResponse{
-		JobID:    jobID,
-		Message:  "File uploaded successfully and queued for processing",
-		Filename: sanitizedName,
+	//create job in database
+	job := &models.Job{
+		ID: jobID,
+		UserID: claims.UserID,
+		FilePath: filePath,
+		OriginalFilename: sanitizedName,
+		Status: models.JobStatusQueued,
 	}
+	ctx, cancel := context.WithTimeout(r.Context(), 5*time.Second)
+	defer cancel()
 
+	if err := h.jobRepo.Create(ctx, job); err != nil {
+		log.Printf("Failed to create job: %v", err)
+		respondError(w, "Failed to create job", "INTERNAL_ERROR", http.StatusInternalServerError)
+		return
+	}
+	//add job to queue for background processing
+	if err := h.jobQueue.Enqueue(ctx, job); err != nil{
+		log.Printf("Failed to enqueue job: %v", err)
+		//job is in db but not queued - we could have a cleanup process for this
+		respondError(w, "Failed to queue job", "INTERNAL_ERROR", http.StatusInternalServerError)
+		return
+	}
+	log.Printf("Job created:%s (user: %s, file: %s)", jobID, claims.UserID, sanitizedName)
+	response := UploadResponse {
+		JobID: jobID,
+		Message: "File uploaded successfully and queued for processing",
+		Filename: sanitizedName,
+		Status: string(models.JobStatusQueued),
+	}
 	respondJSON(w, response, http.StatusAccepted)
+
 }
+
