@@ -1,5 +1,12 @@
 # 🧾 M-PESA Statement Analyzer
 
+![Go](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white)
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+
 > A secure, production-grade financial analysis platform built with Go. Transform your M-PESA statements into actionable insights with AI-powered categorization and interactive dashboards.
 
  • [Report Bug](https://github.com/Wendyshiro/M-PESA-Statements-Analyzer/issues) • [Request Feature](https://github.com/Wendyshiro/M-PESA-Statements-Analyzer/issues)
