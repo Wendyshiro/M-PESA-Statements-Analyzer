@@ -20,25 +20,26 @@ func NewJobRepository(db *database.DB) *JobRepository {
 
 func (r *JobRepository) Create(ctx context.Context, job *models.Job) error {
 	query := `
-		INSERT INTO jobs (id, user_id, file_path, original_filename, status)
-		VALUES ($1, $2, $3, $4, $5)
-		RETURNING created_at, updated_at
-	`
+    INSERT INTO jobs (id, user_id, file_path, original_filename, status, pdf_password)
+    VALUES ($1, $2, $3, $4, $5, $6)
+    RETURNING created_at, updated_at
+`
 
-	return r.db.Pool.QueryRow(
-		ctx, query,
-		job.ID,
-		job.UserID,
-		job.FilePath,
-		job.OriginalFilename,
-		job.Status,
-	).Scan(&job.CreatedAt, &job.UpdatedAt)
+return r.db.Pool.QueryRow(
+    ctx, query,
+    job.ID,
+    job.UserID,
+    job.FilePath,
+    job.OriginalFilename,
+    job.Status,
+    job.PDFPassword,
+).Scan(&job.CreatedAt, &job.UpdatedAt)
 }
 
 func (r *JobRepository) GetByID(ctx context.Context, jobID string) (*models.Job, error) {
 	query := `
 		SELECT id, user_id, file_path, original_filename, status, 
-		       error_message, created_at, updated_at, completed_at
+		       error_message, pdf_password, created_at, updated_at, completed_at
 		FROM jobs
 		WHERE id = $1
 	`
@@ -51,6 +52,7 @@ func (r *JobRepository) GetByID(ctx context.Context, jobID string) (*models.Job,
 		&job.OriginalFilename,
 		&job.Status,
 		&job.ErrorMessage,
+		&job.PDFPassword,
 		&job.CreatedAt,
 		&job.UpdatedAt,
 		&job.CompletedAt,

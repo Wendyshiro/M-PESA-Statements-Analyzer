@@ -70,6 +70,8 @@ func main() {
 	authHandler := handlers.NewAuthHandler(authService, userRepo)
 	jobHandler := handlers.NewJobHandler(jobRepo)
 	healthHandler := handlers.NewHealthHandler(db, redisCache)
+	summaryHandler := handlers.NewSummaryHandler(jobRepo)
+
 	//Create router
 	mux := http.NewServeMux()
 	// Register routes
@@ -82,6 +84,7 @@ func main() {
 	// Protected routes auth required
 	protectedMux := http.NewServeMux()
 	protectedMux.HandleFunc("/upload", uploadHandler.HandleUpload)
+	protectedMux.HandleFunc("/summary/", summaryHandler.GetSummary)
 	protectedMux.HandleFunc("/jobs", jobHandler.GetUserJobs)
 	protectedMux.HandleFunc("/jobs/", func(w http.ResponseWriter, r *http.Request) {
 		if strings.HasPrefix(r.URL.Path, "/jobs/") && len(strings.TrimPrefix(r.URL.Path, "/jobs/")) > 0 {

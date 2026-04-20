@@ -1,114 +1,85 @@
 package handlers
 
 import (
-	"fmt"
-	"io/ioutil"
-	"mpesa-finance/internal/services"
+	"log"
 	"net/http"
 	"os"
+	"path/filepath"
+	"strings"
 
-	"github.com/gin-gonic/gin"
+	"mpesa-finance/internal/repository"
+	"mpesa-finance/internal/services"
 )
 
-// FirstN returns the first n characters of a string
-func FirstN(s string, n int) string {
-	if len(s) < n {
-		return s
-	}
-	return s[:n]
+type SummaryHandler struct {
+	jobRepo *repository.JobRepository
 }
 
-func SummaryHandler(c *gin.Context) {
-	// Check if output.txt exists
-	outputFile := "output.txt"
-	if _, err := os.Stat(outputFile); os.IsNotExist(err) {
-		services.LogInfo("No output.txt found, returning empty summary")
-		c.JSON(http.StatusOK, gin.H{
-			"message": "No transaction data available. Please upload a statement first.",
-			"summary": gin.H{
-				"categories": map[string]float64{},
-			},
-		})
+func NewSummaryHandler(jobRepo *repository.JobRepository) *SummaryHandler {
+	return &SummaryHandler{jobRepo: jobRepo}
+}
+
+func (h *SummaryHandler) GetSummary(w http.ResponseWriter, r *http.Request) {
+	// Extract job ID from URL: /summary/{jobId}
+	jobID := strings.TrimPrefix(r.URL.Path, "/summary/")
+	if jobID == "" {
+		respondError(w, "Job ID required", "BAD_REQUEST", http.StatusBadRequest)
 		return
 	}
 
-	// Read the transaction data file
-	data, err := ioutil.ReadFile(outputFile)
+	// Get job from database
+	job, err := h.jobRepo.GetByID(r.Context(), jobID)
 	if err != nil {
-		errMsg := fmt.Sprintf("Failed to read transaction data: %v", err)
-		services.LogError(errMsg, err)
-		c.JSON(http.StatusInternalServerError, gin.H{
-			"error":   "Failed to read transaction data",
-			"details": err.Error(),
-		})
+		respondError(w, "Job not found", "NOT_FOUND", http.StatusNotFound)
 		return
 	}
 
-	// Check if file is empty
-	if len(data) == 0 {
-		services.LogInfo("Output file is empty")
-		c.JSON(http.StatusOK, gin.H{
-			"message": "No transaction data available in the statement",
-			"summary": gin.H{
-				"categories": map[string]float64{},
-			},
-		})
+	// Job must be completed
+	if job.Status != "completed" {
+		respondError(w, "Job is not completed yet", "JOB_NOT_COMPLETE", http.StatusBadRequest)
 		return
 	}
 
-	// Parse text into structured transactions
-	transactions, err := services.ParseTransactionsFromText(string(data))
+	// Resolve absolute path if needed
+	filePath := job.FilePath
+	if !filepath.IsAbs(filePath) {
+		wd, err := os.Getwd()
+		if err != nil {
+			respondError(w, "Failed to resolve file path", "INTERNAL_ERROR", http.StatusInternalServerError)
+			return
+		}
+		filePath = filepath.Join(wd, filePath)
+	}
+
+	// Extract text from the PDF
+	log.Printf("Summary: extracting from path=%s", filePath)
+	text, err := services.ExtractTextFromPDF(filePath, job.PDFPassword)
 	if err != nil {
-		services.LogError("Failed to parse transaction data:", err)
-		c.JSON(http.StatusInternalServerError, gin.H{
-			"error":   "Failed to parse transaction data",
-			"details": err.Error(),
-		})
+		log.Printf("Summary: extraction error: %v", err)
+		respondError(w, "Failed to read statement: "+err.Error(), "EXTRACTION_ERROR", http.StatusInternalServerError)
 		return
 	}
+	log.Printf("Summary: extracted %d chars of text", len(text))
 
-	if len(transactions) == 0 {
-		services.LogInfo("No transactions found in the parsed data")
-		c.JSON(http.StatusOK, gin.H{
-			"message": "No transactions found in the statement",
-			"summary": gin.H{
-				"categories": map[string]float64{},
-			},
-		})
+	// Parse transactions
+	transactions, err := services.ParseTransactionsFromText(text)
+	if err != nil {
+		respondError(w, "Failed to parse transactions", "PARSE_ERROR", http.StatusInternalServerError)
 		return
 	}
+	log.Printf("Summary: parsed %d transactions", len(transactions))
 
-	// Log first few transactions for debugging
-	services.LogInfo(fmt.Sprintf("Processing %d transactions", len(transactions)))
-	if len(transactions) > 0 {
-		services.LogInfo("Sample transaction: " + fmt.Sprintf("%+v", transactions[0]))
-	}
-
-	// Analyze transactions
+	// Analyze
 	summary := services.AnalyzeTransactions(transactions)
 
-	// Log summary for debugging
-	services.LogInfo("Generated category breakdown:")
-	for category, amount := range summary.CategoryBreakdown {
-		services.LogInfo(fmt.Sprintf("%s: %.2f", category, amount))
-	}
-
-	// Format the response
-	categoryBreakdown := make(map[string]float64)
-	for category, amount := range summary.CategoryBreakdown {
-		// Convert from cents to shillings if needed
-		categoryBreakdown[category] = amount / 100.0
-	}
-
-	// Return JSON response
-	c.JSON(http.StatusOK, gin.H{
-		"message": "Transaction summary retrieved successfully",
-		"summary": gin.H{
-			"categories":     categoryBreakdown,
-			"total_income":   summary.TotalIncome / 100.0,
-			"total_expenses": summary.TotalExpenses / 100.0,
-			"net_balance":    (summary.TotalIncome - summary.TotalExpenses) / 100.0,
+	respondJSON(w, map[string]interface{}{
+		"message": "Summary retrieved successfully",
+		"summary": map[string]interface{}{
+			"categories":     summary.CategoryBreakdown,
+			"total_income":   summary.TotalIncome,
+			"total_expenses": summary.TotalExpenses,
+			"net_balance":    summary.NetBalanceChange,
 		},
 		"total_transactions": len(transactions),
-	})
+	}, http.StatusOK)
 }
