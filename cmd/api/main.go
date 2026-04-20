@@ -9,14 +9,11 @@ import (
 	"mpesa-finance/internal/handlers"
 	"mpesa-finance/internal/middleware"
 	"mpesa-finance/internal/repository"
-	utils "mpesa-finance/internal/services"
 	"mpesa-finance/queue"
+	"mpesa-finance/internal/worker"
+	"context"
 	"net/http"
-	"os"
 	"strings"
-
-	"github.com/gin-gonic/gin"
-	"github.com/joho/godotenv"
 )
 
 func healthHandler(w http.ResponseWriter, r *http.Request) {
@@ -57,6 +54,14 @@ func main() {
 	userRepo := repository.NewUserRepository(db)
 	jobRepo := repository.NewJobRepository(db)
 
+	//Create and start the worker
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+
+	w := worker.NewWorker(jobQueue, jobRepo)
+	go w.Start(ctx)
+	log.Println("Worker started in background")
+
 	//create services
 	authService := auth.NewService(cfg.JWTSecret)
 
@@ -68,8 +73,6 @@ func main() {
 	//Create router
 	mux := http.NewServeMux()
 	// Register routes
-
-	mux.HandleFunc("/upload", uploadHandler.HandleUpload)
 	mux.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request){
 		healthHandler.Check(w, r)
 	})
@@ -105,48 +108,4 @@ func main() {
 		log.Fatalf("Failed to start server: %v", err)
 	}
 
-	//load environment variables
-	if err := godotenv.Load(); err != nil {
-		log.Fatal("Error loading .env file")
-	}
-
-	r := gin.Default()
-	apiKey := os.Getenv("OPENAI_API_KEY")
-	if apiKey != "" {
-		var err error
-		handlers.AICategorizer, err = utils.NewAICategorizer(apiKey)
-		if err != nil {
-			log.Printf("Warning: Failed to initialize AI categorizer: %v", err)
-		} else {
-			log.Println("AI categorizer initialized successfully")
-		}
-	} else {
-		log.Println("Warning: OPENAI_API_KEY not set. AI categorization will be disabled.")
-	}
-	r.MaxMultipartMemory = 8 << 20 // 8 MB
-
-	// Serve static files from the dashboard directory
-	r.Static("/static", "./dashboard/static")
-	r.StaticFile("/favicon.ico", "./dashboard/favicon.ico")
-
-	// Handle dashboard route - serve index.html for all dashboard routes
-	r.GET("/dashboard", func(c *gin.Context) {
-		c.File("./dashboard/index.html")
-	})
-
-	// Serve index.html at root
-	r.GET("/", func(c *gin.Context) {
-		c.Redirect(http.StatusMovedPermanently, "/dashboard")
-	})
-
-	// API endpoints
-
-	r.POST("/upload", func(c *gin.Context) {
-		uploadHandler.HandleUpload(c.Writer, c.Request)
-	})
-	r.GET("/summary", handlers.SummaryHandler)
-	//ai cateorizer
-	r.GET("/ai-categorize", handlers.AICategorizeHandler)
-
-	r.Run(":8081")
 }

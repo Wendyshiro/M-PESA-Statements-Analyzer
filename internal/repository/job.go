@@ -107,14 +107,13 @@ func (r *JobRepository) GetByUserID(ctx context.Context, userID string, limit in
 
 func (r *JobRepository) UpdateStatus(ctx context.Context, jobID string, status models.JobStatus, errorMessage string) error {
 	query := `
-		UPDATE jobs
-		SET status = $1, 
-		    error_message = $2,
-		    updated_at = NOW(),
-		    completed_at = CASE WHEN $1 IN ('completed', 'failed') THEN NOW() ELSE completed_at END
-		WHERE id = $3
-	`
-
+    UPDATE jobs
+    SET status = $1::job_status, 
+        error_message = $2,
+        updated_at = NOW(),
+        completed_at = CASE WHEN $1::text IN ('completed', 'failed') THEN NOW() ELSE completed_at END
+    WHERE id = $3
+`
 	result, err := r.db.Pool.Exec(ctx, query, status, errorMessage, jobID)
 	if err != nil {
 		return err

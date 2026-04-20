@@ -25,14 +25,16 @@ type UploadHandler struct {
 }
 
 func NewUploadHandler(uploadDir string, jobRepo *repository.JobRepository, jobQueue *queue.JobQueue) *UploadHandler {
-	// Create upload directory if it doesn't exist
-	if err := os.MkdirAll(uploadDir, 0755); err != nil {
-		log.Fatalf("Failed to create upload directory: %v", err)
-	}
 
-	return &UploadHandler{
-		uploadDir: uploadDir,
-	}
+    if err := os.MkdirAll(uploadDir, 0755); err != nil {
+        log.Fatalf("Failed to create upload directory: %v", err)
+    }
+
+    return &UploadHandler{
+        uploadDir: uploadDir,
+        jobRepo:   jobRepo,
+        jobQueue:  jobQueue,
+    }
 }
 
 type UploadResponse struct {
@@ -51,14 +53,20 @@ func (h *UploadHandler) HandleUpload(w http.ResponseWriter, r *http.Request) {
 	//get user from context
 	claims, ok := middleware.GetClaims(r)
 	if !ok {
-		respondError(w,"Unathorized", "UNAUTHORIZED", http.StatusUnauthorized)
+		respondError(w,"Unauthorized", "UNAUTHORIZED", http.StatusUnauthorized)
+		return
 	}
 
 	// Parse multipart form (32MB max memory)
-	if err := r.ParseMultipartForm(32 << 20); err != nil {
-		respondError(w, "Failed to parse form data", "INVALID_FORM", http.StatusBadRequest)
-		return
-	}
+	
+    if err := r.ParseMultipartForm(32 << 20); err != nil {
+    log.Printf("ParseMultipartForm error: %v", err)
+    log.Printf("Content-Type: %s", r.Header.Get("Content-Type"))
+    respondError(w, "Failed to parse form data: "+err.Error(), "INVALID_FORM", http.StatusBadRequest)
+    return
+}
+	//get optional PDF Password
+	pdfPassword := r.FormValue("password")
 
 	// Get file from form
 	file, header, err := r.FormFile("file")
@@ -101,6 +109,7 @@ func (h *UploadHandler) HandleUpload(w http.ResponseWriter, r *http.Request) {
 		FilePath: filePath,
 		OriginalFilename: sanitizedName,
 		Status: models.JobStatusQueued,
+		PDFPassword: pdfPassword,
 	}
 	ctx, cancel := context.WithTimeout(r.Context(), 5*time.Second)
 	defer cancel()
